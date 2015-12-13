@@ -1,0 +1,33 @@
+{
+  "Angular Component": {
+    "prefix": "ng2component",
+    "body": [
+      "import {Component, OnInit} from 'angular2/angular2';",
+      "",
+      "@Component({",
+      "\tselector: '${1:selector}',",
+      "\ttemplateUrl: '${2:app}/${3:name}.component.html'",
+      "})",
+      "",
+      "export class ${4:name}Component implements OnInit {",
+      "$0",
+      "\tconstructor() { }",
+      "",
+      "\tngOnInit() { }",
+      "}"
+    ]
+  },
+  "Angular Service": {
+    "prefix": "ng2service",
+    "body": [
+      "import {Injectable} from 'angular2/angular2';",
+      "",
+      "@Injectable()",
+      "export class ${1:name}Service {",
+      "$0",
+      "\tconstructor() { }",
+      "",
+      "}"
+    ]
+  }
+}
