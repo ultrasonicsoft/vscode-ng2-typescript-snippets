@@ -108,5 +108,26 @@
 			"}"
 		],
 		"description": "Simple service class"
+	},
+	"Angular Service with Http": {
+		"prefix": "ng2httpService",
+		"body": [
+			"import {HTTP_PROVIDERS, Http} from 'angular2/http';",
+			"import {Injectable} from 'angular2/core';",
+			"",
+			"@Injectable()",
+			"export class ${Component}Service {",
+			"\t${serviceData}: Object[];",
+			"\tconstructor(public http: Http) {",
+			"\t\thttp.get('${http_uri}').subscribe(res => {",
+			"\t\t\tthis.${serviceData} = res.json();",
+			"\t\t});",
+			"\t}",
+			"\tget(): Object[] {",
+			"\t\treturn this.${serviceData};",
+			"\t}",
+			"}"
+		],
+		"description": "Simple service class"
 	}
 }
