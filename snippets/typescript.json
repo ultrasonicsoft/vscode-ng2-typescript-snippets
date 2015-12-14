@@ -90,9 +90,23 @@
 			"",
 			"\tngOnInit() { console.log('ngOnInit'); }",
 			"\tngOnDestroy() { console.log('ngOnDestroy'); }",
-			
 			"}"
 		],
 		"description": "Component with service dependency injection"
+	},
+	"Angular Simple Service": {
+		"prefix": "ng2simpleService",
+		"body": [
+			"export class ${Data}Service {",
+			"\t${data} = ['${data1}', '${data2}'];",
+			"\tget(): string[] {",
+			"\t\treturn this.${data};",
+			"}",
+			"\tadd(value: string): void {",
+			"\t\tthis.${data}.push(value);",
+			"\t}",
+			"}"
+		],
+		"description": "Simple service class"
 	}
 }
