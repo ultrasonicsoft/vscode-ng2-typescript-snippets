@@ -41,5 +41,46 @@
 			"export class AppCmp {}"
 		],
 		"description": "Root component of your application"
+	},
+	"Angular Component": {
+		"prefix": "ng2component",
+		"body": [
+			"import {Component, OnInit, OnDestroy } from 'angular2/core';",
+			"",
+			"@Component({",
+			"\tselector: '${1:name}',",
+			"\ttemplateUrl: '${2:app}/${3:name}.component.html'",
+			"})",
+			"",
+			"export class ${2:name}Component implements OnInit, OnDestroy  {",
+			"$0",
+			"\tconstructor() { }",
+			"",
+			"\tngOnInit() { console.log('ngOnInit'); }",
+			"\tngOnDestroy() { console.log('ngOnDestroy'); }",
+			"}"
+		],
+		"description": "General component without any service dependency"
+	},
+	"Angular Component With Service": {
+		"prefix": "ng2compService",
+		"body": [
+			"import {Component, OnInit, OnDestroy } from 'angular2/core';",
+			"import {${service}} from '${serviceFolder}/${3:serivceFile}';",
+			"",
+			"@Component({",
+			"\tselector: '${selector}',",
+			"\ttemplateUrl: '${app}/${name}.component.html'",
+			"})",
+			"",
+			"export class ${name}Component implements OnInit, OnDestroy  {",
+			"$0",
+			"\tconstructor(public ${service}: ${service}) { }",
+			"",
+			"\tngOnInit() { console.log('ngOnInit'); }",
+			"\tngOnDestroy() { console.log('ngOnDestroy'); }",
+			"}"
+		],
+		"description": "Component with service dependency injection"
 	}
 }
