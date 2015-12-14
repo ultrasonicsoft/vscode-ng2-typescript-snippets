@@ -11,6 +11,7 @@
 			"	ROUTER_PROVIDERS,",
 			"	provide(LocationStrategy, { useClass: HashLocationStrategy })",
 			"]);"
-		]
+		],
+		"description": "Create a bootstrap code for angular2 application"
 	}
 }
