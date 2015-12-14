@@ -12,6 +12,7 @@ ng2component    			// generate an Angular 2 Simple Component class
 ng2compService    			// generate an Angular 2 Component class with Service Dependency Injection
 ng2simpleService    		// generate an Angular 2 Simple Service class
 ng2httpService				// generate an Angular 2 Service class with HTTP service injected
+forFull						// generate full definition of for loop
 ```
 
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to activate snippets from within the editor.

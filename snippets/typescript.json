@@ -129,5 +129,15 @@
 			"}"
 		],
 		"description": "Service class with http service injected"
+	},
+	"For Loop": {
+		"prefix": "forFull",
+		"body": [
+			"for (var ${index} = 0; ${index} < ${array}.length; ${index}++) {",
+			"\tvar ${element} = ${array}[${index}];",
+			"\t$0",
+			"}"
+		],
+		"description": "For Loop"
 	}
 }
