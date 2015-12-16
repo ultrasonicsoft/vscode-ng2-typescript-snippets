@@ -202,5 +202,23 @@
 			"}"
 		],
 		"description": "Empty Component class"
+	},
+	"Constructor": {
+		"prefix": "ng2constructor",
+		"body": [
+			"constructor(){",
+			"\t$0",
+			"}"
+		],
+		"description": "Simple constructor definition"
+	},
+	"OnChanges Event": {
+		"prefix": "ng2onChanges",
+		"body": [
+			"\tngOnChanges(changes) {",
+			"\t\tconsole.log('ngOnChanges - ${propertyName} = ' + changes['${propertyName}'].currentValue);",
+			"\t}"
+		],
+		"description": "Simple constructor definition"
 	}
 }
