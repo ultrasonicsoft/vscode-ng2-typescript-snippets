@@ -45,12 +45,12 @@
 	"Angular Component": {
 		"prefix": "ng2component",
 		"body": [
-			"import {Component, ViewEncapsulation, OnInit, OnDestroy } from 'angular2/core';",
+			"import {Component, ViewEncapsulation, OnInit, OnDestroy, APPLICATION_COMMON_PROVIDERS } from 'angular2/core';",
 			"import {CORE_DIRECTIVES, COMMON_DIRECTIVES, FORM_BINDINGS, COMMON_PIPES, FORM_DIRECTIVES} from 'angular2/common';",
 			"",
 			"@Component({",
 			"  selector: '${selector}',",
-			"  viewProviders: [],",
+			"  providers: [APPLICATION_COMMON_PROVIDERS],",
 			"  templateUrl: '${./components/app/app.html}',",
 			"  styleUrls: ['${./components/app/app.css}'],",
 			"  encapsulation: ViewEncapsulation.None,",
