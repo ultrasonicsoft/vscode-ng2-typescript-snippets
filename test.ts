@@ -18,6 +18,8 @@ import {Pipe} from 'angular2/core';
 export class asyncPipePipe {
 	private fetchedValue: any;
 	private fetchPromise: Promise<any>;
+	@Output() eventName = new EventEmitter();
+	
 	transform(value: string, args: string[]): any {
 		if (!this.fetchPromise) {
 			this.fetchPromise = window.fetch(value)

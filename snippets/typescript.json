@@ -184,5 +184,12 @@
 			"}"
 		],
 		"description": "StateFull Async Pipe for promise object data formatting"
+	},
+	"EventEmitter with @Output": {
+		"prefix": "ng2eventEmitter",
+		"body": [
+			"@Output() ${eventName} = new EventEmitter();"
+		],
+		"description": "Declare Event Emitter with @Output"
 	}
 }
