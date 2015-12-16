@@ -139,5 +139,27 @@
 			"}"
 		],
 		"description": "For Loop"
+	},
+	"Pipe": {
+		"prefix": "ng2pipeSimple",
+		"body": [
+			"import {Pipe} from 'angular2/core';",
+			"/*",
+			" * Raise the value exponentially",
+			" * Takes an exponent argument that defaults to 1.",
+			" * Usage:",
+			" *   value | ${pipeName}:exponent",
+			" * Example:",
+			" *   {{ 2 |  ${pipeName}:10}}",
+			" *   formats to: 1024",
+			"*/",
+			"@Pipe({name: '${pipeName}'})",
+			"export class ${pipeName}Pipe {",
+			"\ttransform(value:number, args:string[]) : any {",
+			"\t\treturn Math.pow(value, parseInt(args[0] || '1', 10));",
+			"\t}",
+			"}"
+		],
+		"description": "For Loop"
 	}
 }

@@ -2,7 +2,7 @@
     "name": "Angular2",
     "publisher": "UVBrain",
     "displayName": "Angular 2 TypeScript Snippets",
-    "description": "Angular 2 TypeScript snippets",
+    "description": "Angular 2 TypeScript snippets (Angular 2 Beta version)",
     "icon": "images/angular-shield.png",
     "galleryBanner": {
         "color": "#0273D4",
@@ -13,7 +13,7 @@
         "type": "git",
         "url": "https://github.com/ultrasonicsoft/vscode-ng2-typescript-snippets.git"
     },
-    "version": "0.1.10",
+    "version": "0.2.1",
     "engines": { "vscode": "0.10.x" },
     "categories": ["Snippets"],
     "contributes": {
