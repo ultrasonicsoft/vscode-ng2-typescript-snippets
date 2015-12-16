@@ -1,3 +1,4 @@
+{
 	"Angular Bootstrap": {
 		"prefix": "ng2bootstrap",
 		"body": [
@@ -45,7 +46,7 @@
 		"prefix": "ng2component",
 		"body": [
 			"import {Component, ViewEncapsulation, OnInit, OnDestroy } from 'angular2/core';",
-			"import {CORE_DIRECTIVES} from 'angular2/common';",
+			"import {CORE_DIRECTIVES, COMMON_DIRECTIVES, FORM_BINDINGS, COMMON_PIPES, FORM_DIRECTIVES} from 'angular2/common';",
 			"",
 			"@Component({",
 			"  selector: '${selector}',",
@@ -53,8 +54,8 @@
 			"  templateUrl: '${./components/app/app.html}',",
 			"  styleUrls: ['${./components/app/app.css}'],",
 			"  encapsulation: ViewEncapsulation.None,",
-			"  directives: [CORE_DIRECTIVES],",
-			"  pipes: []",
+			"  directives: [CORE_DIRECTIVES, COMMON_DIRECTIVES, FORM_BINDINGS, FORM_DIRECTIVES],",
+			"  pipes: [COMMON_PIPES]",
 			"})",
 			"",
 			"export class ${2:name}Component implements OnInit, OnDestroy  {",
@@ -160,7 +161,7 @@
 			"\t}",
 			"}"
 		],
-		"description": "For Loop"
+		"description": "Stateless custom pipe with arguments"
 	},
 	"Async Stateful Pipe ": {
 		"prefix": "ng2pipeAsyncStateful",
@@ -244,5 +245,29 @@
 			"}"
 		],
 		"description": "Component implementing AfterContentInit interface"
+	},
+	"Component with Basic Directives": {
+		"prefix": "ng2componentWithBasicDirectives",
+		"body": [
+			"import {Component, AfterContentInit} from 'angular2/core';",
+			"",
+			"@Component({",
+			"  selector: '${selector}',",
+			"  template: `${<ng-content></ng-content>}`",
+			"})",
+			"class ${ComponentName} implements AfterContentInit {",
+			"\t//TODO: Add your child component here",
+			"\t//@ContentChild(ChildComponent) contentChild: ChildComponent;",
+			"\tconstructor() {",
+			"\t\t// contentChild is not initialized yet",
+			"\t}",
+			"\tngAfterContentInit() {",
+			"\t\t// contentChild is updated after the content has been checked",
+			"\t\t$0",
+			"\t\tconsole.log('AfterContentInit..');",
+			"\t}",
+			"}"
+		],
+		"description": "Component with CORE_DIRECTIVES,FORM_DIRECTIVES AND COMMON_DIRECTIVES"
 	}
 }
