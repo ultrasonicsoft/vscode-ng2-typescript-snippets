@@ -1,4 +1,3 @@
-{
 	"Angular Bootstrap": {
 		"prefix": "ng2bootstrap",
 		"body": [
@@ -54,7 +53,8 @@
 			"  templateUrl: '${./components/app/app.html}',",
 			"  styleUrls: ['${./components/app/app.css}'],",
 			"  encapsulation: ViewEncapsulation.None,",
-			"  directives: [CORE_DIRECTIVES]",
+			"  directives: [CORE_DIRECTIVES],",
+			"  pipes: []",
 			"})",
 			"",
 			"export class ${2:name}Component implements OnInit, OnDestroy  {",
@@ -128,7 +128,7 @@
 			"\t}",
 			"}"
 		],
-		"description": "Service class with http service injected"
+		"description": "Simple service class"
 	},
 	"For Loop": {
 		"prefix": "forFull",
@@ -161,5 +161,28 @@
 			"}"
 		],
 		"description": "For Loop"
+	},
+	"Async Stateful Pipe ": {
+		"prefix": "ng2pipeAsyncStateful",
+		"body": [
+			"import {Pipe} from 'angular2/core';",
+			"@Pipe({",
+			"\tname: '${fetch}',",
+			"\tpure: false",
+			"})",
+			"export class ${asyncPipe}Pipe {",
+			"\tprivate ${fetchedValue}:any;",
+			"\tprivate ${fetchPromise}:Promise<any>;",
+			"\ttransform(${value}:string, args:string[]):any {",
+			"\t\tif (!this.${fetchPromise}) {",
+			"\t\t\tthis.${fetchPromise} = window.${fetch}(value)",
+			"\t\t\t.then((result:any) => result.json())",
+			"\t\t\t.then((json:any)   => this.${fetchedValue} = json);",
+			"\t\t}",
+			"\t\treturn this.${fetchedValue};",
+			"\t}",
+			"}"
+		],
+		"description": "StateFull Async Pipe for promise object data formatting"
 	}
 }
