@@ -26,3 +26,4 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 5. Choose the extension 'Angular 2 TypeScript Snippets' - By Balram
 6. Reload Visual Studio Code
 
+
