@@ -33,6 +33,8 @@ forFull							// generate full definition of for loop
 
 ```
 
+![alt tag](https://github.com/ultrasonicsoft/vscode-ng2-typescript-snippets/blob/master/images/Demo.gif)
+
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to activate snippets from within the editor.
 
 ## Installation
@@ -42,7 +44,10 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 3. From the command palette `Ctrl`-`Shift`-`P` (Windows, Linux) or `Cmd`-`Shift`-`P` (OSX)
 4. Select `Install Extension`
 5. Choose the extension 'Angular 2 TypeScript Snippets' - By Balram
+![alt tag](https://github.com/ultrasonicsoft/vscode-ng2-typescript-snippets/blob/master/images/Install.png)
+
 6. Reload Visual Studio Code
+![alt tag](https://github.com/ultrasonicsoft/vscode-ng2-typescript-snippets/blob/master/images/Restart.png)
 
 
 Stay tuned for latest updates...
