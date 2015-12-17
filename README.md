@@ -33,7 +33,7 @@ forFull							// generate full definition of for loop
 
 ```
 
-![alt tag](https://github.com/ultrasonicsoft/vscode-ng2-typescript-snippets/blob/master/images/Demo.gif)
+![demo](https://cloud.githubusercontent.com/assets/4145169/11861228/237489b8-a4a4-11e5-8db0-cfcf1f740b91.gif)
 
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to activate snippets from within the editor.
 
