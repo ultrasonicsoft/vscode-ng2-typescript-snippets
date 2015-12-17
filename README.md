@@ -1,8 +1,14 @@
 # Angular 2 TypeScript Snippets for VS Code
 
-Angular 2 has gone in Beta 0 version. 
+Angular 2 has gone in Beta version.
 
-Here are the most frequetnly used snippet for Angular 2 using Typescript embedded in Visual Studio Code. 
+https://angular.io/
+
+A great news for all of Angular2 lovers. 
+
+If you are working on Angular 2 with TypeScript, here are the most frequently used snippets for Angular2 with Typescript embedded in Visual Studio Code..
+
+These snippet will generate code with latest syntax for Component, Directive, Service, Events, Lifecycle events and much more... 
 
 ## Usage
 Type part of a snippet, press `enter`, and the snippet unfolds.
@@ -39,3 +45,6 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 6. Reload Visual Studio Code
 
 
+Stay tuned for latest updates...
+
+Thanks!
