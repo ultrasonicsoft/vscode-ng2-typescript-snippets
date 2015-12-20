@@ -95,6 +95,10 @@ ngPipe-percent                      // "Percent pipe. Formats a number as local 
 ngPipe-currency                     // "Currency pipe. Formats a number as local currency." 
 
 ```
+
+![htmldemo4](https://cloud.githubusercontent.com/assets/4145169/11918039/a72e2b5c-a746-11e5-9abe-20472267325a.gif)
+
+
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to activate snippets from within the editor.
 
 ## Installation
