@@ -30,11 +30,11 @@
         "snippets": [
             {
                 "language": "html",
-                "path": "./html.json"
+                "path": "./snippets/html.json"
             },
             {
                 "language": "typescript",
-                "path": "./typescript.json"
+                "path": "./snippets/typescript.json"
             }
         ]
     }
