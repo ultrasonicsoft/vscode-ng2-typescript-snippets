@@ -109,7 +109,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 4. Select `Install Extension`
 5. Choose the extension 'Angular2 TypeScript with HTML directives Snippets' - By Balram
 
-![install](https://cloud.githubusercontent.com/assets/4145169/11861269/99c59260-a4a4-11e5-8fb5-42e6a8da6dbf.png)
+![install updated](https://cloud.githubusercontent.com/assets/4145169/11919220/5bc2b4a4-a772-11e5-9dba-82763eba3a15.png)
 
 6. Reload Visual Studio Code
 
