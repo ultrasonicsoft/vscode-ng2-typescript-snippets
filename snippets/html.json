@@ -352,7 +352,7 @@
         "prefix": "ngSelect-control",
         "body": [
             "<select ${required} [(ngModel)]=\"${model.property}\" ngControl=\"${controlName}\">",
-            "\t<option *ngFor=\"#${item} of ${collection}\" [value]=\"item\">{{item}} $0</option>",
+            "\t<option *ngFor=\"#${item} of ${collection}\" [value]=\"${item}\">{{${item}}} $0</option>",
             "</select>"
         ],
         "description": "select control with data binding . <select required [(ngModel)]=\"model.property\" ngControl=\"controlName\">"
