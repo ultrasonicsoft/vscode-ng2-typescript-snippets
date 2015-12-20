@@ -107,7 +107,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 2. Launch Code
 3. From the command palette `Ctrl`-`Shift`-`P` (Windows, Linux) or `Cmd`-`Shift`-`P` (OSX)
 4. Select `Install Extension`
-5. Choose the extension 'Angular2 TypeScript with HTML directives Snippets' - By Balram
+5. Choose the extension `Angular2 TypeScript with HTML directives Snippets` - `By Balram`
 
 ![install updated](https://cloud.githubusercontent.com/assets/4145169/11919220/5bc2b4a4-a772-11e5-9dba-82763eba3a15.png)
 
