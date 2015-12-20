@@ -92,7 +92,7 @@ ngPipe-json                         // "Json pipe. Convert string to JSON format
 ngPipe-slice                        // "Slice pipe. Creates a new List or String containing only a subset (slice) of the elements."
 ngPipe-Decimal                      // "Decimal pipe. Formats a number as local text. i.e. group sizing and separator and other locale-specific configurations are based on the active locale."
 ngPipe-percent                      // "Percent pipe. Formats a number as local percent."
-ngPipe-currency                     // "Currency pipe. Formats a number as local currency."
+ngPipe-currency                     // "Currency pipe. Formats a number as local currency." 
 
 ```
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to activate snippets from within the editor.
