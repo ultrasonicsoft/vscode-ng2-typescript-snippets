@@ -1,8 +1,13 @@
 {
     "name": "Angular2",
     "publisher": "UVBrain",
+<<<<<<< HEAD
     "displayName": "Angular 2 TypeScript Snippets",
     "description": "Angular2 (Best version)Typescript ES6 fequently used snippets",
+=======
+    "displayName": "Angular2 TypeScript with HTML directives Snippets",
+    "description": "Latest Angular2 + Typescript(ES6) + HTML fequently used snippets. Component, Directives, Service, NgFor, NgIf and other Html Directives",
+>>>>>>> 321e52dab1355d0620336e1e4b40ad6b02c18220
     "public": true,
     "icon": "images/angular-shield.png",
     "galleryBanner": {
@@ -28,6 +33,10 @@
     ],
     "contributes": {
         "snippets": [
+            {
+                "language": "html",
+                "path": "./snippets/html.json"
+            },
             {
                 "language": "typescript",
                 "path": "./snippets/typescript.json"

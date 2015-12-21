@@ -1,0 +1,418 @@
+{
+    "click event": {
+        "prefix": "ngClick",
+        "body": [
+            "(click)=\"${clickEventHandler}(${$event})\" $0"
+        ],
+        "description": "Click event directive. (click)=\"clickEventHandler($event)\""
+    },
+    "Interpolation binding": {
+        "prefix": "ngInterpol",
+        "body": [
+            "{{${proprtyName}}} $0"
+        ],
+        "description": "Interpol component's property in html"
+    },
+    "Simple Pipe": {
+        "prefix": "ngPipe",
+        "body": [
+            " | ${pipe} $0"
+        ],
+        "description": "Apply pipe on component property. [date, json, number, ...]}"
+    },
+    "Pipe with interpolation property": {
+        "prefix": "ngPipeWithProperty",
+        "body": [
+            "{{${proprtyName} | ${pipe}}} $0"
+        ],
+        "description": "Pipe with interpolation property"
+    },
+    "Async Pipe": {
+        "prefix": "ngPipe-async",
+        "body": [
+            "{{${proprtyName} | async}}  $0"
+        ],
+        "description": "Async Pipe with interpolation property"
+    },
+    "Date Pipe with interpolation property": {
+        "prefix": "ngPipe-date",
+        "body": [
+            "{{${proprtyName} | date}} $0"
+        ],
+        "description": "Date Pipe. e.g. 'Jun 15, 2015' for en-US"
+    },
+    "Medium Date With Time Pipe with interpolation property": {
+        "prefix": "ngPipe-date-medium",
+        "body": [
+            "{{${proprtyName} | date:'medium'}} $0"
+        ],
+        "description": "Medium Date With Time Pipe. e.g. Sep 3, 2010, 12:05:08 PM for en-US"
+    },
+    "Short Date With Time With Time Pipe with interpolation property": {
+        "prefix": "ngPipe-date-short",
+        "body": [
+            "{{${proprtyName} | date:'short'}} $0"
+        ],
+        "description": "Short Date With Time Pipe. e.g. 9/3/2010, 12:05 PM for en-US"
+    },
+    "Full Date Pipe with interpolation property": {
+        "prefix": "ngPipe-date-full",
+        "body": [
+            "{{${proprtyName} | date:'fullDate'}} $0"
+        ],
+        "description": "Full Date Pipe. e.g. Friday, September 3, 2010 for en-US"
+    },
+    "Long Date Pipe with interpolation property": {
+        "prefix": "ngPipe-longDate",
+        "body": [
+            "{{${proprtyName} | date:'longDate'}} $0"
+        ],
+        "description": "Long Date Pipe. e.g. September 3, 2010"
+    },
+    "Medium Date Pipe with interpolation property": {
+        "prefix": "ngPipe-mediumDate",
+        "body": [
+            "{{${proprtyName} | date:'mediumDate'}} $0"
+        ],
+        "description": "Medium Date Pipe. e.g. Sep 3, 2010 for en-US"
+    },
+    "Short Date Pipe with interpolation property": {
+        "prefix": "ngPipe-shortDate",
+        "body": [
+            "{{${proprtyName} | date:'shortDate'}} $0"
+        ],
+        "description": "Short Date Pipe. e.g. Sep 3, 2010 for en-US"
+    },
+    "Medium Time Pipe with interpolation property": {
+        "prefix": "ngPipe-mediumTime",
+        "body": [
+            "{{${proprtyName} | date:'mediumTime'}} $0"
+        ],
+        "description": "Medium Time Pipe. e.g. 12:05:08 PM for en-US"
+    },
+    "Short Time Pipe with interpolation property": {
+        "prefix": "ngPipe-shortTime",
+        "body": [
+            "{{${proprtyName} | date:'shortTime'}} $0"
+        ],
+        "description": "Short Time Pipe. e.g. 12:05 PM for en-US"
+    },
+    "Uppercase Pipe": {
+        "prefix": "ngPipe-uppercase",
+        "body": [
+            "{{${proprtyName} | uppercase}} $0"
+        ],
+        "description": "Uppercase pipe. Convert string to upper case"
+    },
+    "Lowercase Pipe": {
+        "prefix": "nPipe-lowercase",
+        "body": [
+            "{{${proprtyName} | lowercase}} $0"
+        ],
+        "description": "Lowercase pipe. Convert string to lower case"
+    },
+    "Json Pipe": {
+        "prefix": "ngPipe-json",
+        "body": [
+            "{{${proprtyName} | json}} $0"
+        ],
+        "description": "Json pipe. Convert string to JSON format"
+    },
+    "Slice Pipe": {
+        "prefix": "ngPipe-slice",
+        "body": [
+            "{{${proprtyName} | slice:${Start}:${End}}} $0"
+        ],
+        "description": "Slice pipe. Creates a new List or String containing only a subset (slice) of the elements."
+    },
+    "Decimal Pipe": {
+        "prefix": "ngPipe-decimal",
+        "body": [
+            "{{${proprtyName} | number:${minIntegerDigits}.${minFractionDigits}-${maxFractionDigits} }} $0"
+        ],
+        "description": "Decimal pipe. Formats a number as local text. i.e. group sizing and separator and other locale-specific configurations are based on the active locale."
+    },
+    "Percent Pipe": {
+        "prefix": "ngPipe-percent",
+        "body": [
+            "{{${proprtyName} | percent:${digitInfo} }} $0"
+        ],
+        "description": "Percent pipe. Formats a number as local percent."
+    },
+    "Currency Pipe": {
+        "prefix": "ngPipe-currency",
+        "body": [
+            "{{${proprtyName} | currency:${currencyCode}:${symbolDisplay}:${digitInfo} }} $0"
+        ],
+        "description": "Currency pipe. Formats a number as local currency."
+    },
+    "<p> tag with": {
+        "prefix": "ngInterpol-p",
+        "body": [
+            "<p>{{${proprtyName}}} $0</p>"
+        ],
+        "description": "Interpol component's property in <p> tag. <p>{{property}}</p>"
+    },
+    "<div> tag with": {
+        "prefix": "ngInterpol-div",
+        "body": [
+            "<div>{{${proprtyName}}} $0</div>"
+        ],
+        "description": "Interpol component's property in <div> tag. <div>{{property}}</div>"
+    },
+    "One way binding": {
+        "prefix": "ngBind-one-way",
+        "body": [
+            "[${propertyName}]=\"${componentProperty}\" $0"
+        ],
+        "description": "One way binding to component's property. [property]=\"Property\""
+    },
+    "One way binding On Div": {
+        "prefix": "ngBind-one-way-div",
+        "body": [
+            "<div [${propertyName}]=\"${componentProperty}\">",
+            "\t$0",
+            "</div>"
+        ],
+        "description": "One way binding to <div> property e.g. <div [property]=\"property\"></div>"
+    },
+    "Two way binding ng-model": {
+        "prefix": "ngBind-ng-model",
+        "body": [
+            "[(ngModel)]=\"${componentProperty}\" $0"
+        ],
+        "description": "Two way binding [(ngModel)] to component's property. [(ngModel)]=\"Property\""
+    },
+    "Two way binding ng-model Div": {
+        "prefix": "ngBind-ng-model-div",
+        "body": [
+            "<div [(ngModel)]=\"${componentProperty}\">",
+            "\t$0",
+            "</div>"
+        ],
+        "description": "Two way binding [(ngModel)] to component's property. [(ngModel)]=\"Property\""
+    },
+    "Two way binding": {
+        "prefix": "ngBind-two-way",
+        "body": [
+            "[(${propertyName})]=\"${componentProperty}\" $0"
+        ],
+        "description": "Two way binding to component's property. [(property)]=\"Property\""
+    },
+    "Two way binding With Div": {
+        "prefix": "ngBind-two-way-div",
+        "body": [
+            "<div [(${propertyName})]=\"${componentProperty}\">",
+            "\t$0",
+            "</div>"
+        ],
+        "description": "Two way binding to component's property. [(property)]=\"Property\""
+    },
+    "NgIf": {
+        "prefix": "ngIf",
+        "body": [
+            "*ngIf=\"${Property}\" $0"
+        ],
+        "description": "ngIf directive. *ngIf=\"Property\""
+    },
+    "NgIf with Div": {
+        "prefix": "ngIf-div",
+        "body": [
+            "<div *ngIf=\"${Property}\">",
+            "\t$0",
+            "</div>"
+        ],
+        "description": "ngIf directive on <div>. <div *ngIf=\"Property\"></div>"
+    },
+    "NgIf with Section": {
+        "prefix": "ngIf-section",
+        "body": [
+            "<section *ngIf=\"${Property}\">",
+            "\t$0",
+            "</section>"
+        ],
+        "description": "ngIf directive on <section>. <section *ngIf=\"Property\"></section>"
+    },
+    "NgFor": {
+        "prefix": "ngFor",
+        "body": [
+            "*ngFor=\"#${loopVariable} of ${list}\" $0"
+        ],
+        "description": "ngFor. *ngFor=\"#item of list\""
+    },
+    "NgFor <li>": {
+        "prefix": "ngFor-li",
+        "body": [
+            "<ul>",
+            "\t<li *ngFor=\"#${loopVariable} of ${list}\">",
+            "\t\t{{${loopVariable}}}$0",
+            "\t</li>",
+            "</ul>"
+        ],
+        "description": "ngFor on <li>. <li *ngFor=\"#item of list\">{{item}}</li>"
+    },
+    "ngSwitch": {
+        "prefix": "ngSwitch",
+        "body": [
+            "[ngSwitch]=\"${conditionExpression}\" $0"
+        ],
+        "description": "ngSwitch directive. [ngSwitch]=\"conditionExpression\""
+    },
+    "ngSwitch with <p>": {
+        "prefix": "ngSwitch-when-default",
+        "body": [
+            "<div [ngSwitch]=\"${condition-expression}\">",
+            "\t<p *ngSwitchWhen=\"${condition-1}\">${template-1}</p>",
+            "\t<p *ngSwitchWhen=\"${condition-2}\">${template-2}</p>",
+            "\t$0",
+            "\t<p *ngSwitchDefault>${default-template}</p>",
+            "</div>"
+        ],
+        "description": "ngSwitch with <div> and ngSwitchWhen conditions."
+    },
+    "ngSwitch with <template>": {
+        "prefix": "ngSwitch-template",
+        "body": [
+            "<p [ngSwitch]=\"${condition-expression}\">",
+            "\t<template ngSwitchWhen=\"${condition-1}\">${template-1}</template>",
+            "\t<template ngSwitchWhen=\"${condition-2}\">${template-2}</template>",
+            "\t$0",
+            "\t<template ngSwitchDefault>${default-template}</template>",
+            "</p>"
+        ],
+        "description": "ngSwitch with <template> and ngSwitchWhen conditions."
+    },
+    "NgClass": {
+        "prefix": "ngClass",
+        "body": [
+            "[ngClass]=\"${CSS-Class-Name}\" $0"
+        ],
+        "description": "ngClass directive. [ngClass]=\"highlightedClass\""
+    },
+    "NgClass with Css Array": {
+        "prefix": "ngClass-array",
+        "body": [
+            "[ngClass]=\"[${CssClass-1},${CssClass-2}]\" $0"
+        ],
+        "description": "ngClass with Css class array . [ngClass]=[\"highlightedClass\",\"showBorder\""
+    },
+    "NgClass with Css Object": {
+        "prefix": "ngClass-object",
+        "body": [
+            "[ngClass]=\"{${className1}: ${expression1}, ${className2}: ${expression2}}\" $0"
+        ],
+        "description": "ngClass with Css class Object . [ngClass]=\"{active: isOn, disabled: isDisabled}\""
+    },
+    "NgClass-Div": {
+        "prefix": "ngClass-div",
+        "body": [
+            "<div [ngClass]=\"${CSS-Class-Name}\">",
+            "\t$0",
+            "</div>"
+        ],
+        "description": "ngClass on <div> directive. <div [ngClass]=\"CSS-Class-Name\"> </div>"
+    },
+    "NgClass with Css Array - Div": {
+        "prefix": "ngClass-array-div",
+        "body": [
+            "<div [ngClass]=\"[${CssClass-1},${CssClass-2}]\">",
+            "\t$0",
+            "</div>"
+        ],
+        "description": "ngClass with Css class array on <div>. <div [ngClass]=\"[CssClass-1,CssClass-2]\"> </div>"
+    },
+    "NgClass with Css Object - Div": {
+        "prefix": "ngClass-object-div",
+        "body": [
+            "<div [ngClass]=\"{${className1}: ${expression1}, ${className2}: ${expression2}}\">",
+            "\t$0",
+            "</div>"
+        ],
+        "description": "ngClass with Css class Object . [ngClass]=\"{active: isOn, disabled: isDisabled}\""
+    },
+    "Form": {
+        "prefix": "ngForm-submit",
+        "body": [
+            "<form id=${formId} (ngSubmit)=\"${submitMethod}()\" #${refForm}=\"${ngForm}\">",
+            "\t<div>",
+            "\t\t$0",
+            "\t</div>",
+            "</form>"
+        ],
+        "description": "Form tag with (ngSubmit). <form id=\"dataForm\" (ngSubmit)=\"submitMethod()\"></div>"
+    },
+    "Input Control": {
+        "prefix": "ngInput-control",
+        "body": [
+            "<input type=\"${text}\" ${required} [(ngModel)]=\"${model.property}\" ngControl=\"${name}\" ngControl=\"${controlName}\"> $0"
+        ],
+        "description": "input control with data binding . <input type=\"text\" class=\"form-control\" required"
+    },
+    "Select Control": {
+        "prefix": "ngSelect-control",
+        "body": [
+            "<select ${required} [(ngModel)]=\"${model.property}\" ngControl=\"${controlName}\">",
+            "\t<option *ngFor=\"#${item} of ${collection}\" [value]=\"${item}\">{{${item}}} $0</option>",
+            "</select>"
+        ],
+        "description": "select control with data binding . <select required [(ngModel)]=\"model.property\" ngControl=\"controlName\">"
+    },
+    "Hidden Div": {
+        "prefix": "ngDiv-hidden",
+        "body": [
+            "<div [hidden]=\"${condition}\">",
+            "\t$0",
+            "</div>"
+        ],
+        "description": "Conditional hidden <div> . <div [hidden]=\"condition\"></div>"
+    },
+    "Input Text": {
+        "prefix": "ngInput-text",
+        "body": [
+            "<input type=\"text\" ${required}>$0</input>"
+        ],
+        "description": "Text input box. <input type=\"text\" required></input>"
+    },
+    "Input NgModel": {
+        "prefix": "ngInput-ngModel",
+        "body": [
+            "<input type=\"${text}\" ${required} [(ngModel)]=\"${model.name}\">{{${model.name}}} $0 </input>"
+        ],
+        "description": "Input box with ngModel binding . <input type=\"text\" required [(ngModel)]=\"model.name\">{{model.name}} </input>"
+    },
+    "Submit button": {
+        "prefix": "ngButton-submit",
+        "body": [
+            "<button type=\"submit\">${Submit}$0</button>"
+        ],
+        "description": "Submit button. <button type=\"submit\">Submit</button>"
+    },
+    "Button with click event": {
+        "prefix": "ngButton-click",
+        "body": [
+            "<button (click)=\"${onClick}()\">${Button Text} $0</button>"
+        ],
+        "description": "button with click event. <button (click)=\"onClick()\">Button Text</button>"
+    },
+    "KeyUp event": {
+        "prefix": "ngKeyUp",
+        "body": [
+            "(keyup)=\"${onKey}($event)\" $0"
+        ],
+        "description": "Key up event. (keyup)=\"onKey($event)\""
+    },
+    "Blur event": {
+        "prefix": "ngBlur",
+        "body": [
+            "(blur)=\"${onBlur}($event)\" $0"
+        ],
+        "description": "Blur event. (blur)=\"onBlur($event)\""
+    },
+    "ngSubmit event": {
+        "prefix": "ngSubmit",
+        "body": [
+            "(ngSubmit)=\"${onSubmit}()\" $0"
+        ],
+        "description": "ngSubmit event. (ngSubmit)=\"onSubmit()\""
+    }
+}
