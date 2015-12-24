@@ -2,7 +2,7 @@
     "name": "Angular2",
     "publisher": "UVBrain",
     "displayName": "Angular2 TypeScript with HTML directives Snippets",
-    "description": "Latest Angular2 + Typescript(ES6) + HTML fequently used snippets. Component, Directives, Service, NgFor, NgIf and other Html Directives",
+    "description": "Latest Angular2 (All API keywords) + Typescript(ES6) + HTML fequently used snippets. Component, Directives, Service, NgFor, NgIf and other Html Directives",
     "public": true,
     "icon": "images/angular-shield.png",
     "galleryBanner": {
@@ -19,7 +19,7 @@
         "type": "git",
         "url": "https://github.com/ultrasonicsoft/vscode-ng2-typescript-snippets.git"
     },
-    "version": "0.2.6",
+    "version": "0.2.7",
     "engines": {
         "vscode": "0.10.x"
     },
