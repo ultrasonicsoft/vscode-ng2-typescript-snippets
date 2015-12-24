@@ -1,5 +1,13 @@
 # Angular 2 TypeScript Snippets for VS Code
 
+## IMPORTANT UPDATE
+
+All latest Angular2 Beta API keywords has been included in this snippet. With these snippet your Angular2 development speed will be drastrically improved.
+
+https://angular.io/docs/ts/latest/api/
+  
+**************************************************
+
 Angular 2 has gone in Beta version.
 
 https://angular.io/
@@ -10,11 +18,14 @@ If you are working on Angular 2 with TypeScript, here are the most frequently us
 
 These snippet will generate code with latest syntax for Component, Directive, Service, Events, Lifecycle events and much more... 
 
+
 ## Usage
 Type part of a snippet, press `enter`, and the snippet unfolds.
 
 Latest Angular2 Typescript snippets
 ```typescript
+<<Angular2 api keywords>>       // https://angular.io/docs/ts/latest/api/ all latest Angular2 API keywords 
+
 ng2bootstrap  					// generate an Angular 2 Bootstrap snippet
 ng2appComp    					// generate an Angular 2 Root App Component class with basic DIRECTIVES, COMPONENTS, PROVIDERS etc
 ng2component    				// generate an Angular 2 Simple Component class
@@ -92,7 +103,7 @@ ngPipe-json                         // "Json pipe. Convert string to JSON format
 ngPipe-slice                        // "Slice pipe. Creates a new List or String containing only a subset (slice) of the elements."
 ngPipe-Decimal                      // "Decimal pipe. Formats a number as local text. i.e. group sizing and separator and other locale-specific configurations are based on the active locale."
 ngPipe-percent                      // "Percent pipe. Formats a number as local percent."
-ngPipe-currency                     // "Currency pipe. Formats a number as local currency." 
+ngPipe-currency                     // "Currency pipe. Formats a number as local currency."
 
 ```
 
