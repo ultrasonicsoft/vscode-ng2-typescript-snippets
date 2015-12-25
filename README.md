@@ -22,7 +22,10 @@ These snippet will generate code with latest syntax for Component, Directive, Se
 ## Usage
 Type part of a snippet, press `enter`, and the snippet unfolds.
 
-Latest Angular2 Typescript snippets
+# Latest Angular2 API keywords
+![api2](https://cloud.githubusercontent.com/assets/4145169/11999302/c39f5d2c-aae0-11e5-8954-ca1e3a3a099d.gif)
+
+# Latest Angular2 Typescript snippets
 ```typescript
 <<Angular2 api keywords>>       // https://angular.io/docs/ts/latest/api/ all latest Angular2 API keywords 
 
