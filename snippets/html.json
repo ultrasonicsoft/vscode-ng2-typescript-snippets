@@ -414,5 +414,12 @@
             "(ngSubmit)=\"${onSubmit}()\" $0"
         ],
         "description": "ngSubmit event. (ngSubmit)=\"onSubmit()\""
+    },
+    "ngStyle": {
+        "prefix": "ngStyle",
+        "body": [
+            "[ngStyle]=\"{'${key1}': ${value1}, '${key2}': ${value2}\"}"
+        ],
+        "description": "ngStyle snippet"
     }
 }

@@ -1,263 +1,2578 @@
 {
-	"Angular Bootstrap": {
-		"prefix": "ng2bootstrap",
+    /*
+	 // Place your snippets for TypeScript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	 // $1, $2 for tab stops, ${id} and ${id:label} and ${1:label} for variables. Variables with the same id are connected.
+	 // Example:
+	 "Print to console": {
+		"prefix": "log",
 		"body": [
-			"import {provide} from 'angular2/core';",
-			"import {bootstrap} from 'angular2/platform/browser';",
-			"import {ROUTER_PROVIDERS, APP_BASE_HREF, LocationStrategy, HashLocationStrategy} from 'angular2/router';",
-			"import {${AppCmp}} from './${components}/${app}/${app}';",
-			"",
-			"bootstrap(${AppCmp}, [",
-			"	ROUTER_PROVIDERS,",
-			"	provide(LocationStrategy, { useClass: HashLocationStrategy })",
-			"]);"
+			"console.log('$1');",
+			"$2"
 		],
-		"description": "Create a bootstrap code for angular2 application"
-	},
-	"Angular App Component": {
-		"prefix": "ng2appComp",
-		"body": [
-			"import {Component, ViewEncapsulation} from 'angular2/core';",
-			"import {",
-			" RouteConfig,",
-			"  ROUTER_DIRECTIVES",
-			"} from 'angular2/router';",
-			"import {HTTP_PROVIDERS} from 'angular2/http';",
-			"",
-			"import {${ChildComponent}} from '../${ChildComponent}/${childComponent}';",
-			"import {${Service}} from '../${Service}/${service}';",
-			"",
-			"@Component({",
-			"  selector: '${selector}',",
-			"  viewProviders: [${Service}],",
-			"  templateUrl: '${./components/app/app.html}',",
-			"  styleUrls: ['${./components/app/app.css}'],",
-			"  encapsulation: ViewEncapsulation.None,",
-			"  directives: [ROUTER_DIRECTIVES]",
-			"})",
-			"@RouteConfig([",
-			"  { path: '/', component: ${ChildComponent}, as: '${ChildComponent}' }",
-			"])",
-			"export class AppCmp {}"
-		],
-		"description": "Root component of your application"
-	},
-	"Angular Component": {
-		"prefix": "ng2component",
-		"body": [
-			"import {Component, ViewEncapsulation, OnInit, OnDestroy, APPLICATION_COMMON_PROVIDERS } from 'angular2/core';",
-			"import {CORE_DIRECTIVES, COMMON_DIRECTIVES, FORM_BINDINGS, COMMON_PIPES, FORM_DIRECTIVES} from 'angular2/common';",
-			"",
-			"@Component({",
-			"  selector: '${selector}',",
-			"  providers: [APPLICATION_COMMON_PROVIDERS],",
-			"  templateUrl: '${./components/app/app.html}',",
-			"  styleUrls: ['${./components/app/app.css}'],",
-			"  encapsulation: ViewEncapsulation.None,",
-			"  directives: [CORE_DIRECTIVES, COMMON_DIRECTIVES, FORM_BINDINGS, FORM_DIRECTIVES],",
-			"  pipes: [COMMON_PIPES]",
-			"})",
-			"",
-			"export class ${2:name}Component implements OnInit, OnDestroy  {",
-			"$0",
-			"\tconstructor() { }",
-			"",
-			"\tngOnInit() { console.log('ngOnInit'); }",
-			"\tngOnDestroy() { console.log('ngOnDestroy'); }",
-			"}"
-		],
-		"description": "General component without any service dependency"
-	},
-	"Angular Component With Service": {
-		"prefix": "ng2compService",
-		"body": [
-			"import {Component, ViewEncapsulation, OnInit, OnDestroy } from 'angular2/core';",
-			"import {CORE_DIRECTIVES} from 'angular2/common';",
-			"import {${service}} from '${serviceFolder}/${3:serivceFile}';",
-			"",
-			"@Component({",
-			"  selector: '${selector}',",
-			"  viewProviders: [],",
-			"  templateUrl: '${./components/app/app.html}',",
-			"  styleUrls: ['${./components/app/app.css}'],",
-			"  encapsulation: ViewEncapsulation.None,",
-			"  directives: [CORE_DIRECTIVES]",
-			"})",
-			"",
-			"export class ${name}Component implements OnInit, OnDestroy  {",
-			"$0",
-			"\t//Make sure you bootstrap your service at startup",
-			"\tconstructor(public ${service}: ${service}) { }",
-			"",
-			"\tngOnInit() { console.log('ngOnInit'); }",
-			"\tngOnDestroy() { console.log('ngOnDestroy'); }",
-			"}"
-		],
-		"description": "Component with service dependency injection"
-	},
-	"Angular Simple Service": {
-		"prefix": "ng2simpleService",
-		"body": [
-			"export class ${Data}Service {",
-			"\t${data} = ['${data1}', '${data2}'];",
-			"\tget(): string[] {",
-			"\t\treturn this.${data};",
-			"}",
-			"\tadd(value: string): void {",
-			"\t\tthis.${data}.push(value);",
-			"\t}",
-			"}"
-		],
-		"description": "Simple service class"
-	},
-	"Angular Service with Http": {
-		"prefix": "ng2httpService",
-		"body": [
-			"import {HTTP_PROVIDERS, Http} from 'angular2/http';",
-			"import {Injectable} from 'angular2/core';",
-			"",
-			"@Injectable()",
-			"export class ${Component}Service {",
-			"\t${serviceData}: Object[];",
-			"\tconstructor(public http: Http) {",
-			"\t\thttp.get('${http_uri}').subscribe(res => {",
-			"\t\t\tthis.${serviceData} = res.json();",
-			"\t\t});",
-			"\t}",
-			"\tget(): Object[] {",
-			"\t\treturn this.${serviceData};",
-			"\t}",
-			"}"
-		],
-		"description": "Simple service class"
-	},
-	"For Loop": {
-		"prefix": "forFull",
-		"body": [
-			"for (var ${index} = 0; ${index} < ${array}.length; ${index}++) {",
-			"\tvar ${element} = ${array}[${index}];",
-			"\t$0",
-			"}"
-		],
-		"description": "For Loop"
-	},
-	"Pipe": {
-		"prefix": "ng2pipeSimple",
-		"body": [
-			"import {Pipe} from 'angular2/core';",
-			"/*",
-			" * Raise the value exponentially",
-			" * Takes an exponent argument that defaults to 1.",
-			" * Usage:",
-			" *   value | ${pipeName}:exponent",
-			" * Example:",
-			" *   {{ 2 |  ${pipeName}:10}}",
-			" *   formats to: 1024",
-			"*/",
-			"@Pipe({name: '${pipeName}'})",
-			"export class ${pipeName}Pipe {",
-			"\ttransform(value:number, args:string[]) : any {",
-			"\t\treturn Math.pow(value, parseInt(args[0] || '1', 10));",
-			"\t}",
-			"}"
-		],
-		"description": "Stateless custom pipe with arguments"
-	},
-	"Async Stateful Pipe ": {
-		"prefix": "ng2pipeAsyncStateful",
-		"body": [
-			"import {Pipe} from 'angular2/core';",
-			"@Pipe({",
-			"\tname: '${fetch}',",
-			"\tpure: false",
-			"})",
-			"export class ${asyncPipe}Pipe {",
-			"\tprivate ${fetchedValue}:any;",
-			"\tprivate ${fetchPromise}:Promise<any>;",
-			"\ttransform(${value}:string, args:string[]):any {",
-			"\t\tif (!this.${fetchPromise}) {",
-			"\t\t\tthis.${fetchPromise} = window.${fetch}(value)",
-			"\t\t\t.then((result:any) => result.json())",
-			"\t\t\t.then((json:any)   => this.${fetchedValue} = json);",
-			"\t\t}",
-			"\t\treturn this.${fetchedValue};",
-			"\t}",
-			"}"
-		],
-		"description": "StateFull Async Pipe for promise object data formatting"
-	},
-	"EventEmitter with @Output": {
-		"prefix": "ng2eventEmitter",
-		"body": [
-			"@Output() ${eventName} = new EventEmitter();"
-		],
-		"description": "Declare Event Emitter with @Output"
-	},
-	"Component Empty Definition": {
-		"prefix": "ng2componentEmpty",
-		"body": [
-			"import {Component } from 'angular2/core';",
-			"@Component({selector: '${componentName}', template: '${<h2>This is ${componentName} component.</h2><h3>Name: {{ ${name} }}}</h3>}'})",
-			"class ${componentName} {",
-			"  ${name}: string = '${Angular2 User}';",
-			"}"
-		],
-		"description": "Empty Component class"
-	},
-	"Constructor": {
-		"prefix": "ng2constructor",
-		"body": [
-			"constructor(){",
-			"\t$0",
-			"}"
-		],
-		"description": "Simple constructor definition"
-	},
-	"OnChanges Event": {
-		"prefix": "ng2onChanges",
-		"body": [
-			"\tngOnChanges(changes) {",
-			"\t\tconsole.log('ngOnChanges - ${propertyName} = ' + changes['${propertyName}'].currentValue);",
-			"\t}"
-		],
-		"description": "OnChanges event is fired whereever component's property is modified"
-	},
-	"Component with AfterContentInit": {
-		"prefix": "ng2componentAfterContentInit",
-		"body": [
-			"import {Component, AfterContentInit} from 'angular2/core';",
-			"",
-			"@Component({",
-			"  selector: '${selector}',",
-			"  template: `${<ng-content></ng-content>}`",
-			"})",
-			"class ${ComponentName} implements AfterContentInit {",
-			"\t//TODO: Add your child component here",
-			"\t//@ContentChild(ChildComponent) contentChild: ChildComponent;",
-			"\tconstructor() {",
-			"\t\t// contentChild is not initialized yet",
-			"\t}",
-			"\tngAfterContentInit() {",
-			"\t\t// contentChild is updated after the content has been checked",
-			"\t\t$0",
-			"\t\tconsole.log('AfterContentInit..');",
-			"\t}",
-			"}"
-		],
-		"description": "Component implementing AfterContentInit interface"
-	},
-	"Directive Simple One": {
-		"prefix": "ng2directiveSimple",
-		"body": [
-			"import {Component, Directive} from 'angular2/core';",
-			"",
-			"@Directive({ selector: '[${directive-selector}]' })",
-			"class ${DirectiveName} {",
-			"\tconstructor() {",
-			" \t\t$0",
-			" \t}",
-			"}"
-		],
-		"description": "Very simple Directive class"
+		"description": "Log output to console"
 	}
+*/
+    "Angular Bootstrap": {
+        "prefix": "ng2bootstrap",
+        "body": [
+            "import {provide} from 'angular2/core';",
+            "import {bootstrap} from 'angular2/platform/browser';",
+            "import {ROUTER_PROVIDERS, APP_BASE_HREF, LocationStrategy, HashLocationStrategy} from 'angular2/router';",
+            "import {${AppCmp}} from './${components}/${app}/${app}';",
+            "",
+            "bootstrap(${AppCmp}, [",
+            "	ROUTER_PROVIDERS,",
+            "	provide(LocationStrategy, { useClass: HashLocationStrategy })",
+            "]);"
+        ],
+        "description": "Create a bootstrap code for angular2 application"
+    },
+    "Angular App Component": {
+        "prefix": "ng2appComp",
+        "body": [
+            "import {Component, ViewEncapsulation} from 'angular2/core';",
+            "import {",
+            " RouteConfig,",
+            "  ROUTER_DIRECTIVES",
+            "} from 'angular2/router';",
+            "import {HTTP_PROVIDERS} from 'angular2/http';",
+            "",
+            "import {${ChildComponent}} from '../${ChildComponent}/${childComponent}';",
+            "import {${Service}} from '../${Service}/${service}';",
+            "",
+            "@Component({",
+            "  selector: '${selector}',",
+            "  viewProviders: [${Service}],",
+            "  templateUrl: '${./components/app/app.html}',",
+            "  styleUrls: ['${./components/app/app.css}'],",
+            "  encapsulation: ViewEncapsulation.None,",
+            "  directives: [ROUTER_DIRECTIVES]",
+            "})",
+            "@RouteConfig([",
+            "  { path: '/', component: ${ChildComponent}, as: '${ChildComponent}' }",
+            "])",
+            "export class AppCmp {}"
+        ],
+        "description": "Root component of your application"
+    },
+    "Angular Component": {
+        "prefix": "ng2component",
+        "body": [
+            "import {Component, ViewEncapsulation, OnInit, OnDestroy, APPLICATION_COMMON_PROVIDERS } from 'angular2/core';",
+            "import {CORE_DIRECTIVES, COMMON_DIRECTIVES, FORM_BINDINGS, COMMON_PIPES, FORM_DIRECTIVES} from 'angular2/common';",
+            "",
+            "@Component({",
+            "  selector: '${selector}',",
+            "  providers: [APPLICATION_COMMON_PROVIDERS],",
+            "  templateUrl: '${./components/app/app.html}',",
+            "  styleUrls: ['${./components/app/app.css}'],",
+            "  encapsulation: ViewEncapsulation.None,",
+            "  directives: [CORE_DIRECTIVES, COMMON_DIRECTIVES, FORM_BINDINGS, FORM_DIRECTIVES],",
+            "  pipes: [COMMON_PIPES]",
+            "})",
+            "",
+            "export class ${2:name}Component implements OnInit, OnDestroy  {",
+            "$0",
+            "\tconstructor() { }",
+            "",
+            "\tngOnInit() { console.log('ngOnInit'); }",
+            "\tngOnDestroy() { console.log('ngOnDestroy'); }",
+            "}"
+        ],
+        "description": "General component without any service dependency"
+    },
+    "Angular Component With Service": {
+        "prefix": "ng2compService",
+        "body": [
+            "import {Component, ViewEncapsulation, OnInit, OnDestroy } from 'angular2/core';",
+            "import {CORE_DIRECTIVES} from 'angular2/common';",
+            "import {${service}} from '${serviceFolder}/${3:serivceFile}';",
+            "",
+            "@Component({",
+            "  selector: '${selector}',",
+            "  viewProviders: [],",
+            "  templateUrl: '${./components/app/app.html}',",
+            "  styleUrls: ['${./components/app/app.css}'],",
+            "  encapsulation: ViewEncapsulation.None,",
+            "  directives: [CORE_DIRECTIVES]",
+            "})",
+            "",
+            "export class ${name}Component implements OnInit, OnDestroy  {",
+            "$0",
+            "\t//Make sure you bootstrap your service at startup",
+            "\tconstructor(public ${service}: ${service}) { }",
+            "",
+            "\tngOnInit() { console.log('ngOnInit'); }",
+            "\tngOnDestroy() { console.log('ngOnDestroy'); }",
+            "}"
+        ],
+        "description": "Component with service dependency injection"
+    },
+    "Angular Simple Service": {
+        "prefix": "ng2simpleService",
+        "body": [
+            "export class ${Data}Service {",
+            "\t${data} = ['${data1}', '${data2}'];",
+            "\tget(): string[] {",
+            "\t\treturn this.${data};",
+            "}",
+            "\tadd(value: string): void {",
+            "\t\tthis.${data}.push(value);",
+            "\t}",
+            "}"
+        ],
+        "description": "Simple service class"
+    },
+    "Angular Service with Http": {
+        "prefix": "ng2httpService",
+        "body": [
+            "import {HTTP_PROVIDERS, Http} from 'angular2/http';",
+            "import {Injectable} from 'angular2/core';",
+            "",
+            "@Injectable()",
+            "export class ${Component}Service {",
+            "\t${serviceData}: Object[];",
+            "\tconstructor(public http: Http) {",
+            "\t\thttp.get('${http_uri}').subscribe(res => {",
+            "\t\t\tthis.${serviceData} = res.json();",
+            "\t\t});",
+            "\t}",
+            "\tget(): Object[] {",
+            "\t\treturn this.${serviceData};",
+            "\t}",
+            "}"
+        ],
+        "description": "Simple service class"
+    },
+    "For Loop": {
+        "prefix": "forFull",
+        "body": [
+            "for (var ${index} = 0; ${index} < ${array}.length; ${index}++) {",
+            "\tvar ${element} = ${array}[${index}];",
+            "\t$0",
+            "}"
+        ],
+        "description": "For Loop"
+    },
+    "Pipe": {
+        "prefix": "ng2pipeSimple",
+        "body": [
+            "import {Pipe} from 'angular2/core';",
+            "/*",
+            " * Raise the value exponentially",
+            " * Takes an exponent argument that defaults to 1.",
+            " * Usage:",
+            " *   value | ${pipeName}:exponent",
+            " * Example:",
+            " *   {{ 2 |  ${pipeName}:10}}",
+            " *   formats to: 1024",
+            "*/",
+            "@Pipe({name: '${pipeName}'})",
+            "export class ${pipeName}Pipe {",
+            "\ttransform(value:number, args:string[]) : any {",
+            "\t\treturn Math.pow(value, parseInt(args[0] || '1', 10));",
+            "\t}",
+            "}"
+        ],
+        "description": "Stateless custom pipe with arguments"
+    },
+    "Async Stateful Pipe ": {
+        "prefix": "ng2pipeAsyncStateful",
+        "body": [
+            "import {Pipe} from 'angular2/core';",
+            "@Pipe({",
+            "\tname: '${fetch}',",
+            "\tpure: false",
+            "})",
+            "export class ${asyncPipe}Pipe {",
+            "\tprivate ${fetchedValue}:any;",
+            "\tprivate ${fetchPromise}:Promise<any>;",
+            "\ttransform(${value}:string, args:string[]):any {",
+            "\t\tif (!this.${fetchPromise}) {",
+            "\t\t\tthis.${fetchPromise} = window.${fetch}(value)",
+            "\t\t\t.then((result:any) => result.json())",
+            "\t\t\t.then((json:any)   => this.${fetchedValue} = json);",
+            "\t\t}",
+            "\t\treturn this.${fetchedValue};",
+            "\t}",
+            "}"
+        ],
+        "description": "StateFull Async Pipe for promise object data formatting"
+    },
+    "EventEmitter with @Output": {
+        "prefix": "ng2eventEmitter",
+        "body": [
+            "@Output() ${eventName} = new EventEmitter();"
+        ],
+        "description": "Declare Event Emitter with @Output"
+    },
+    "Component Empty Definition": {
+        "prefix": "ng2componentEmpty",
+        "body": [
+            "import {Component } from 'angular2/core';",
+            "@Component({selector: '${componentName}', template: '${<h2>This is ${componentName} component.</h2><h3>Name: {{ ${name} }}}</h3>}'})",
+            "class ${componentName} {",
+            "  ${name}: string = '${Angular2 User}';",
+            "}"
+        ],
+        "description": "Empty Component class"
+    },
+    "Constructor": {
+        "prefix": "ng2constructor",
+        "body": [
+            "constructor(){",
+            "\t$0",
+            "}"
+        ],
+        "description": "Simple constructor definition"
+    },
+    "OnChanges Event": {
+        "prefix": "ng2onChanges",
+        "body": [
+            "\tngOnChanges(changes) {",
+            "\t\tconsole.log('ngOnChanges - ${propertyName} = ' + changes['${propertyName}'].currentValue);",
+            "\t}"
+        ],
+        "description": "OnChanges event is fired whereever component's property is modified"
+    },
+    "Component with AfterContentInit": {
+        "prefix": "ng2componentAfterContentInit",
+        "body": [
+            "import {Component, AfterContentInit} from 'angular2/core';",
+            "",
+            "@Component({",
+            "  selector: '${selector}',",
+            "  template: `${<ng-content></ng-content>}`",
+            "})",
+            "class ${ComponentName} implements AfterContentInit {",
+            "\t//TODO: Add your child component here",
+            "\t//@ContentChild(ChildComponent) contentChild: ChildComponent;",
+            "\tconstructor() {",
+            "\t\t// contentChild is not initialized yet",
+            "\t}",
+            "\tngAfterContentInit() {",
+            "\t\t// contentChild is updated after the content has been checked",
+            "\t\t$0",
+            "\t\tconsole.log('AfterContentInit..');",
+            "\t}",
+            "}"
+        ],
+        "description": "Component implementing AfterContentInit interface"
+    },
+    "Directive Simple One": {
+        "prefix": "ng2directiveSimple",
+        "body": [
+            "import {Component, Directive} from 'angular2/core';",
+            "",
+            "@Directive({ selector: '[${directive-selector}]' })",
+            "export class ${DirectiveName} {",
+            "\tconstructor() {",
+            " \t\t$0",
+            " \t}",
+            "}"
+        ],
+        "description": "Very simple Directive class"
+    },
+    "Component": {
+        "prefix": "component",
+        "body": [
+            "Component"
+        ],
+        "description": "Component"
+    },
+    "Interface Full": {
+        "prefix": "interface",
+        "body": [
+            "export interface ${Some}Interface {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Interface"
+    },
+    "Template": {
+        "prefix": "template",
+        "body": [
+            "template : '${html-template}' $0"
+        ],
+        "description": "Component's configuration object's template property"
+    },
+    "Template Url": {
+        "prefix": "templateUrl",
+        "body": [
+            "templateUrl : `${html-url}` $0"
+        ],
+        "description": "Component's configuration object's templateUrl property"
+    },
+    "Styles array": {
+        "prefix": "styles",
+        "body": [
+            "styles : `[${css-class1},${css-class2}]` $0"
+        ],
+        "description": "Component's configuration object's styles property"
+    },
+    "Directive array": {
+        "prefix": "directives",
+        "body": [
+            "directives: `[${directive1},${directive2}]` $0"
+        ],
+        "description": "Component's configuration object's directives property"
+    },
+    "Provider array": {
+        "prefix": "providers",
+        "body": [
+            "providers: `[${provider1},${provider2}]` $0"
+        ],
+        "description": "Component's configuration object's providers property"
+    },
+    "Injectable": {
+        "prefix": "injectable",
+        "body": [
+            "@Injectable() $0"
+        ],
+        "description": "Injectable"
+    },
+    "Injectable Service": {
+        "prefix": "injectableService",
+        "body": [
+            "@Injectable()",
+            "export class ${Data}Service {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Injectable user service"
+    },
+    "COMMON_DIRECTIVES": {
+        "prefix": "COMMON_DIRECTIVES",
+        "body": [
+            "COMMON_DIRECTIVES $0"
+        ],
+        "description": "COMMON_DIRECTIVES"
+    },
+    "COMMON_PIPES": {
+        "prefix": "COMMON_PIPES",
+        "body": [
+            "COMMON_PIPES $0"
+        ],
+        "description": "COMMON_PIPES"
+    },
+    "CORE_DIRECTIVES": {
+        "prefix": "CORE_DIRECTIVES",
+        "body": [
+            "CORE_DIRECTIVES $0"
+        ],
+        "description": "CORE_DIRECTIVES"
+    },
+    "Control": {
+        "prefix": "Control",
+        "body": [
+            "Control $0"
+        ],
+        "description": "Control"
+    },
+    "ControlArray": {
+        "prefix": "ControlArray",
+        "body": [
+            "ControlArray $0"
+        ],
+        "description": "ControlArray"
+    },
+    "ControlGroup": {
+        "prefix": "ControlGroup",
+        "body": [
+            "ControlGroup $0"
+        ],
+        "description": "ControlGroup"
+    },
+    "CurrencyPipe": {
+        "prefix": "CurrencyPipe",
+        "body": [
+            "CurrencyPipe $0"
+        ],
+        "description": "CurrencyPipe"
+    },
+    "DatePipe": {
+        "prefix": "DatePipe",
+        "body": [
+            "DatePipe $0"
+        ],
+        "description": "DatePipe"
+    },
+    "DecimalPipe": {
+        "prefix": "DecimalPipe",
+        "body": [
+            "DecimalPipe $0"
+        ],
+        "description": "DecimalPipe"
+    },
+    "FORM_BINDINGS": {
+        "prefix": "FORM_BINDINGS",
+        "body": [
+            "FORM_BINDINGS $0"
+        ],
+        "description": "FORM_BINDINGS"
+    },
+    "FORM_DIRECTIVES": {
+        "prefix": "FORM_DIRECTIVES",
+        "body": [
+            "FORM_DIRECTIVES $0"
+        ],
+        "description": "FORM_DIRECTIVES"
+    },
+    "FORM_PROVIDERS": {
+        "prefix": "FORM_PROVIDERS",
+        "body": [
+            "FORM_PROVIDERS $0"
+        ],
+        "description": "FORM_PROVIDERS"
+    },
+    "Form": {
+        "prefix": "Form",
+        "body": [
+            "Form $0"
+        ],
+        "description": "Form"
+    },
+    "FormBuilder": {
+        "prefix": "FormBuilder",
+        "body": [
+            "FormBuilder $0"
+        ],
+        "description": "FormBuilder"
+    },
+    "JsonPipe": {
+        "prefix": "JsonPipe",
+        "body": [
+            "JsonPipe $0"
+        ],
+        "description": "JsonPipe"
+    },
+    "LowerCasePipe": {
+        "prefix": "LowerCasePipe",
+        "body": [
+            "LowerCasePipe $0"
+        ],
+        "description": "LowerCasePipe"
+    },
+    "MaxLengthValidator": {
+        "prefix": "MaxLengthValidator",
+        "body": [
+            "MaxLengthValidator $0"
+        ],
+        "description": "MaxLengthValidator"
+    },
+    "MinLengthValidator": {
+        "prefix": "MinLengthValidator",
+        "body": [
+            "MinLengthValidator $0"
+        ],
+        "description": "MinLengthValidator"
+    },
+    "NG_ASYNC_VALIDATORS": {
+        "prefix": "NG_ASYNC_VALIDATORS",
+        "body": [
+            "NG_ASYNC_VALIDATORS $0"
+        ],
+        "description": "NG_ASYNC_VALIDATORS"
+    },
+    "NG_VALIDATORS": {
+        "prefix": "NG_VALIDATORS",
+        "body": [
+            "NG_VALIDATORS $0"
+        ],
+        "description": "NG_VALIDATORS"
+    },
+    "NG_VALUE_ACCESSOR": {
+        "prefix": "NG_VALUE_ACCESSOR",
+        "body": [
+            "NG_VALUE_ACCESSOR $0"
+        ],
+        "description": "NG_VALUE_ACCESSOR"
+    },
+    "NgClass": {
+        "prefix": "NgClass",
+        "body": [
+            "NgClass $0"
+        ],
+        "description": "NgClass"
+    },
+    "NgControl": {
+        "prefix": "NgControl",
+        "body": [
+            "NgControl $0"
+        ],
+        "description": "NgControl"
+    },
+    "NgControlGroup": {
+        "prefix": "NgControlGroup",
+        "body": [
+            "NgControlGroup $0"
+        ],
+        "description": "NgControlGroup"
+    },
+    "NgControlName": {
+        "prefix": "NgControlName",
+        "body": [
+            "NgControlName $0"
+        ],
+        "description": "NgControlName"
+    },
+    "NgControlStatus": {
+        "prefix": "NgControlStatus",
+        "body": [
+            "NgControlStatus $0"
+        ],
+        "description": "NgControlStatus"
+    },
+    "NgFor": {
+        "prefix": "NgFor",
+        "body": [
+            "NgFor $0"
+        ],
+        "description": "NgFor"
+    },
+    "NgForm": {
+        "prefix": "NgForm",
+        "body": [
+            "NgForm $0"
+        ],
+        "description": "NgForm"
+    },
+    "NgFormControl": {
+        "prefix": "NgFormControl",
+        "body": [
+            "NgFormControl $0"
+        ],
+        "description": "NgFormControl"
+    },
+    "NgFormModel": {
+        "prefix": "NgFormModel",
+        "body": [
+            "NgFormModel $0"
+        ],
+        "description": "NgFormModel"
+    },
+    "NgIf": {
+        "prefix": "NgIf",
+        "body": [
+            "NgIf $0"
+        ],
+        "description": "NgIf"
+    },
+    "NgModel": {
+        "prefix": "NgModel",
+        "body": [
+            "NgModel $0"
+        ],
+        "description": "NgModel"
+    },
+    "NgSelectOption": {
+        "prefix": "NgSelectOption",
+        "body": [
+            "NgSelectOption $0"
+        ],
+        "description": "NgSelectOption"
+    },
+    "NgStyle": {
+        "prefix": "NgStyle",
+        "body": [
+            "NgStyle $0"
+        ],
+        "description": "NgStyle"
+    },
+    "NgSwitch": {
+        "prefix": "NgSwitch",
+        "body": [
+            "NgSwitch $0"
+        ],
+        "description": "NgSwitch"
+    },
+    "NgSwitchDefault": {
+        "prefix": "NgSwitchDefault",
+        "body": [
+            "NgSwitchDefault $0"
+        ],
+        "description": "NgSwitchDefault"
+    },
+    "NgSwitchWhen": {
+        "prefix": "NgSwitchWhen",
+        "body": [
+            "NgSwitchWhen $0"
+        ],
+        "description": "NgSwitchWhen"
+    },
+    "NumberPipe": {
+        "prefix": "NumberPipe",
+        "body": [
+            "NumberPipe $0"
+        ],
+        "description": "NumberPipe"
+    },
+    "PercentPipe": {
+        "prefix": "PercentPipe",
+        "body": [
+            "PercentPipe $0"
+        ],
+        "description": "PercentPipe"
+    },
+    "RequiredValidator": {
+        "prefix": "RequiredValidator",
+        "body": [
+            "RequiredValidator $0"
+        ],
+        "description": "RequiredValidator"
+    },
+    "SelectControlValueAccessor": {
+        "prefix": "SelectControlValueAccessor",
+        "body": [
+            "SelectControlValueAccessor $0"
+        ],
+        "description": "SelectControlValueAccessor"
+    },
+    "SlicePipe": {
+        "prefix": "SlicePipe",
+        "body": [
+            "SlicePipe $0"
+        ],
+        "description": "SlicePipe"
+    },
+    "UpperCasePipe": {
+        "prefix": "UpperCasePipe",
+        "body": [
+            "UpperCasePipe $0"
+        ],
+        "description": "UpperCasePipe"
+    },
+    "Validator": {
+        "prefix": "Validator",
+        "body": [
+            "Validator $0"
+        ],
+        "description": "Validator"
+    },
+    "Validators": {
+        "prefix": "Validators",
+        "body": [
+            "Validators $0"
+        ],
+        "description": "Validators"
+    },
+    "APPLICATION_COMMON_PROVIDERS": {
+        "prefix": "APPLICATION_COMMON_PROVIDERS",
+        "body": [
+            "APPLICATION_COMMON_PROVIDERS $0"
+        ],
+        "description": "APPLICATION_COMMON_PROVIDERS"
+    },
+    "APP_COMPONENT": {
+        "prefix": "APP_COMPONENT",
+        "body": [
+            "APP_COMPONENT $0"
+        ],
+        "description": "APP_COMPONENT"
+    },
+    "APP_ID": {
+        "prefix": "APP_ID",
+        "body": [
+            "APP_ID $0"
+        ],
+        "description": "APP_ID"
+    },
+    "APP_INITIALIZER": {
+        "prefix": "APP_INITIALIZER",
+        "body": [
+            "APP_INITIALIZER $0"
+        ],
+        "description": "APP_INITIALIZER"
+    },
+    "AbstractProviderError": {
+        "prefix": "AbstractProviderError",
+        "body": [
+            "AbstractProviderError $0"
+        ],
+        "description": "AbstractProviderError"
+    },
+    "AfterContentChecked": {
+        "prefix": "AfterContentChecked",
+        "body": [
+            "AfterContentChecked $0"
+        ],
+        "description": "AfterContentChecked"
+    },
+    "AfterContentInit": {
+        "prefix": "AfterContentInit",
+        "body": [
+            "AfterContentInit $0"
+        ],
+        "description": "AfterContentInit"
+    },
+    "AfterViewChecked": {
+        "prefix": "AfterViewChecked",
+        "body": [
+            "AfterViewChecked $0"
+        ],
+        "description": "AfterViewChecked"
+    },
+    "AfterViewInit": {
+        "prefix": "AfterViewInit",
+        "body": [
+            "AfterViewInit $0"
+        ],
+        "description": "AfterViewInit"
+    },
+    "AppViewManager": {
+        "prefix": "AppViewManager",
+        "body": [
+            "AppViewManager $0"
+        ],
+        "description": "AppViewManager"
+    },
+    "ApplicationRef": {
+        "prefix": "ApplicationRef",
+        "body": [
+            "ApplicationRef $0"
+        ],
+        "description": "ApplicationRef"
+    },
+    "Attribute": {
+        "prefix": "Attribute",
+        "body": [
+            "Attribute $0"
+        ],
+        "description": "Attribute"
+    },
+    "AttributeFactory": {
+        "prefix": "AttributeFactory",
+        "body": [
+            "AttributeFactory $0"
+        ],
+        "description": "AttributeFactory"
+    },
+    "AttributeMetadata": {
+        "prefix": "AttributeMetadata",
+        "body": [
+            "AttributeMetadata $0"
+        ],
+        "description": "AttributeMetadata"
+    },
+    "Binding": {
+        "prefix": "Binding",
+        "body": [
+            "Binding $0"
+        ],
+        "description": "Binding"
+    },
+    "ChangeDetectionError": {
+        "prefix": "ChangeDetectionError",
+        "body": [
+            "ChangeDetectionError $0"
+        ],
+        "description": "ChangeDetectionError"
+    },
+    "ChangeDetectionStrategy": {
+        "prefix": "ChangeDetectionStrategy",
+        "body": [
+            "ChangeDetectionStrategy $0"
+        ],
+        "description": "ChangeDetectionStrategy"
+    },
+    "ChangeDetectorRef": {
+        "prefix": "ChangeDetectorRef",
+        "body": [
+            "ChangeDetectorRef $0"
+        ],
+        "description": "ChangeDetectorRef"
+    },
+    "ComponentDecorator": {
+        "prefix": "ComponentDecorator",
+        "body": [
+            "ComponentDecorator $0"
+        ],
+        "description": "ComponentDecorator"
+    },
+    "ComponentFactory": {
+        "prefix": "ComponentFactory",
+        "body": [
+            "ComponentFactory $0"
+        ],
+        "description": "ComponentFactory"
+    },
+    "ComponentMetadata": {
+        "prefix": "ComponentMetadata",
+        "body": [
+            "ComponentMetadata $0"
+        ],
+        "description": "ComponentMetadata"
+    },
+    "ComponentRef": {
+        "prefix": "ComponentRef",
+        "body": [
+            "ComponentRef $0"
+        ],
+        "description": "ComponentRef"
+    },
+    "ConcreteType": {
+        "prefix": "ConcreteType",
+        "body": [
+            "ConcreteType $0"
+        ],
+        "description": "ConcreteType"
+    },
+    "ContentChild": {
+        "prefix": "ContentChild",
+        "body": [
+            "ContentChild $0"
+        ],
+        "description": "ContentChild"
+    },
+    "ContentChildFactory": {
+        "prefix": "ContentChildFactory",
+        "body": [
+            "ContentChildFactory $0"
+        ],
+        "description": "ContentChildFactory"
+    },
+    "ContentChildMetadata": {
+        "prefix": "ContentChildMetadata",
+        "body": [
+            "ContentChildMetadata $0"
+        ],
+        "description": "ContentChildMetadata"
+    },
+    "ContentChildren": {
+        "prefix": "ContentChildren",
+        "body": [
+            "ContentChildren $0"
+        ],
+        "description": "ContentChildren"
+    },
+    "ContentChildrenFactory": {
+        "prefix": "ContentChildrenFactory",
+        "body": [
+            "ContentChildrenFactory $0"
+        ],
+        "description": "ContentChildrenFactory"
+    },
+    "ContentChildrenMetadata": {
+        "prefix": "ContentChildrenMetadata",
+        "body": [
+            "ContentChildrenMetadata $0"
+        ],
+        "description": "ContentChildrenMetadata"
+    },
+    "CyclicDependencyError": {
+        "prefix": "CyclicDependencyError",
+        "body": [
+            "CyclicDependencyError $0"
+        ],
+        "description": "CyclicDependencyError"
+    },
+    "DebugElement": {
+        "prefix": "DebugElement",
+        "body": [
+            "DebugElement $0"
+        ],
+        "description": "DebugElement"
+    },
+    "Dependency": {
+        "prefix": "Dependency",
+        "body": [
+            "Dependency $0"
+        ],
+        "description": "Dependency"
+    },
+    "DependencyMetadata": {
+        "prefix": "DependencyMetadata",
+        "body": [
+            "DependencyMetadata $0"
+        ],
+        "description": "DependencyMetadata"
+    },
+    "Directive": {
+        "prefix": "Directive",
+        "body": [
+            "Directive $0"
+        ],
+        "description": "Directive"
+    },
+    "DirectiveDecorator": {
+        "prefix": "DirectiveDecorator",
+        "body": [
+            "DirectiveDecorator $0"
+        ],
+        "description": "DirectiveDecorator"
+    },
+    "DirectiveFactory": {
+        "prefix": "DirectiveFactory",
+        "body": [
+            "DirectiveFactory $0"
+        ],
+        "description": "DirectiveFactory"
+    },
+    "DirectiveMetadata": {
+        "prefix": "DirectiveMetadata",
+        "body": [
+            "DirectiveMetadata $0"
+        ],
+        "description": "DirectiveMetadata"
+    },
+    "DirectiveResolver": {
+        "prefix": "DirectiveResolver",
+        "body": [
+            "DirectiveResolver $0"
+        ],
+        "description": "DirectiveResolver"
+    },
+    "DoCheck": {
+        "prefix": "DoCheck",
+        "body": [
+            "DoCheck $0"
+        ],
+        "description": "DoCheck"
+    },
+    "DynamicComponentLoader": {
+        "prefix": "DynamicComponentLoader",
+        "body": [
+            "DynamicComponentLoader $0"
+        ],
+        "description": "DynamicComponentLoader"
+    },
+    "ElementRef": {
+        "prefix": "ElementRef",
+        "body": [
+            "ElementRef $0"
+        ],
+        "description": "ElementRef"
+    },
+    "ErrorHandlingFn": {
+        "prefix": "ErrorHandlingFn",
+        "body": [
+            "ErrorHandlingFn $0"
+        ],
+        "description": "ErrorHandlingFn"
+    },
+    "EventEmitter": {
+        "prefix": "EventEmitter",
+        "body": [
+            "EventEmitter $0"
+        ],
+        "description": "EventEmitter"
+    },
+    "ExceptionHandler": {
+        "prefix": "ExceptionHandler",
+        "body": [
+            "ExceptionHandler $0"
+        ],
+        "description": "ExceptionHandler"
+    },
+    "ForwardRefFn": {
+        "prefix": "ForwardRefFn",
+        "body": [
+            "ForwardRefFn $0"
+        ],
+        "description": "ForwardRefFn"
+    },
+    "GetTestability": {
+        "prefix": "GetTestability",
+        "body": [
+            "GetTestability $0"
+        ],
+        "description": "GetTestability"
+    },
+    "Host": {
+        "prefix": "Host",
+        "body": [
+            "Host $0"
+        ],
+        "description": "Host"
+    },
+    "HostBinding": {
+        "prefix": "HostBinding",
+        "body": [
+            "HostBinding $0"
+        ],
+        "description": "HostBinding"
+    },
+    "HostBindingFactory": {
+        "prefix": "HostBindingFactory",
+        "body": [
+            "HostBindingFactory $0"
+        ],
+        "description": "HostBindingFactory"
+    },
+    "HostBindingMetadata": {
+        "prefix": "HostBindingMetadata",
+        "body": [
+            "HostBindingMetadata $0"
+        ],
+        "description": "HostBindingMetadata"
+    },
+    "HostFactory": {
+        "prefix": "HostFactory",
+        "body": [
+            "HostFactory $0"
+        ],
+        "description": "HostFactory"
+    },
+    "HostListener": {
+        "prefix": "HostListener",
+        "body": [
+            "HostListener $0"
+        ],
+        "description": "HostListener"
+    },
+    "HostListenerFactory": {
+        "prefix": "HostListenerFactory",
+        "body": [
+            "HostListenerFactory $0"
+        ],
+        "description": "HostListenerFactory"
+    },
+    "HostListenerMetadata": {
+        "prefix": "HostListenerMetadata",
+        "body": [
+            "HostListenerMetadata $0"
+        ],
+        "description": "HostListenerMetadata"
+    },
+    "HostMetadata": {
+        "prefix": "HostMetadata",
+        "body": [
+            "HostMetadata $0"
+        ],
+        "description": "HostMetadata"
+    },
+    "HostViewRef": {
+        "prefix": "HostViewRef",
+        "body": [
+            "HostViewRef $0"
+        ],
+        "description": "HostViewRef"
+    },
+    "Inject": {
+        "prefix": "Inject",
+        "body": [
+            "Inject $0"
+        ],
+        "description": "Inject"
+    },
+    "InjectFactory": {
+        "prefix": "InjectFactory",
+        "body": [
+            "InjectFactory $0"
+        ],
+        "description": "InjectFactory"
+    },
+    "InjectMetadata": {
+        "prefix": "InjectMetadata",
+        "body": [
+            "InjectMetadata $0"
+        ],
+        "description": "InjectMetadata"
+    },
+    "InjectableFactory": {
+        "prefix": "InjectableFactory",
+        "body": [
+            "InjectableFactory $0"
+        ],
+        "description": "InjectableFactory"
+    },
+    "InjectableMetadata": {
+        "prefix": "InjectableMetadata",
+        "body": [
+            "InjectableMetadata $0"
+        ],
+        "description": "InjectableMetadata"
+    },
+    "Injector": {
+        "prefix": "Injector",
+        "body": [
+            "Injector $0"
+        ],
+        "description": "Injector"
+    },
+    "Input": {
+        "prefix": "Input",
+        "body": [
+            "Input $0"
+        ],
+        "description": "Input"
+    },
+    "InputFactory": {
+        "prefix": "InputFactory",
+        "body": [
+            "InputFactory $0"
+        ],
+        "description": "InputFactory"
+    },
+    "InputMetadata": {
+        "prefix": "InputMetadata",
+        "body": [
+            "InputMetadata $0"
+        ],
+        "description": "CyclicDependencyError"
+    },
+    "InstantiationError": {
+        "prefix": "InstantiationError",
+        "body": [
+            "InstantiationError $0"
+        ],
+        "description": "InstantiationError"
+    },
+    "InvalidProviderError": {
+        "prefix": "InvalidProviderError",
+        "body": [
+            "InvalidProviderError $0"
+        ],
+        "description": "InvalidProviderError"
+    },
+    "IterableDiffer": {
+        "prefix": "IterableDiffer",
+        "body": [
+            "IterableDiffer $0"
+        ],
+        "description": "IterableDiffer"
+    },
+    "IterableDifferFactory": {
+        "prefix": "IterableDifferFactory",
+        "body": [
+            "IterableDifferFactory $0"
+        ],
+        "description": "IterableDifferFactory"
+    },
+    "IterableDiffers": {
+        "prefix": "IterableDiffers",
+        "body": [
+            "IterableDiffers $0"
+        ],
+        "description": "IterableDiffers"
+    },
+    "Key": {
+        "prefix": "Key",
+        "body": [
+            "Key $0"
+        ],
+        "description": "Key"
+    },
+    "KeyValueDiffer": {
+        "prefix": "KeyValueDiffer",
+        "body": [
+            "KeyValueDiffer $0"
+        ],
+        "description": "KeyValueDiffer"
+    },
+    "KeyValueDifferFactory": {
+        "prefix": "KeyValueDifferFactory",
+        "body": [
+            "KeyValueDifferFactory $0"
+        ],
+        "description": "KeyValueDifferFactory"
+    },
+    "KeyValueDiffers": {
+        "prefix": "KeyValueDiffers",
+        "body": [
+            "KeyValueDiffers $0"
+        ],
+        "description": "KeyValueDiffers"
+    },
+    "NgZone": {
+        "prefix": "NgZone",
+        "body": [
+            "NgZone $0"
+        ],
+        "description": "NgZone"
+    },
+    "NgZoneError": {
+        "prefix": "NgZoneError",
+        "body": [
+            "NgZoneError $0"
+        ],
+        "description": "NgZoneError"
+    },
+    "NoAnnotationError": {
+        "prefix": "NoAnnotationError",
+        "body": [
+            "NoAnnotationError $0"
+        ],
+        "description": "NoAnnotationError"
+    },
+    "NoProviderError": {
+        "prefix": "NoProviderError",
+        "body": [
+            "NoProviderError $0"
+        ],
+        "description": "NoProviderError"
+    },
+    "OnChanges": {
+        "prefix": "OnChanges",
+        "body": [
+            "OnChanges $0"
+        ],
+        "description": "OnChanges"
+    },
+    "OnDestroy": {
+        "prefix": "OnDestroy",
+        "body": [
+            "OnDestroy $0"
+        ],
+        "description": "OnDestroy"
+    },
+    "OnInit": {
+        "prefix": "OnInit",
+        "body": [
+            "OnInit $0"
+        ],
+        "description": "OnInit"
+    },
+    "OpaqueToken": {
+        "prefix": "OpaqueToken",
+        "body": [
+            "OpaqueToken $0"
+        ],
+        "description": "OpaqueToken"
+    },
+    "Optional": {
+        "prefix": "Optional",
+        "body": [
+            "Optional $0"
+        ],
+        "description": "Optional"
+    },
+    "OptionalFactory": {
+        "prefix": "OptionalFactory",
+        "body": [
+            "OptionalFactory $0"
+        ],
+        "description": "OptionalFactory"
+    },
+    "OptionalMetadata": {
+        "prefix": "OptionalMetadata",
+        "body": [
+            "OptionalMetadata $0"
+        ],
+        "description": "OptionalMetadata"
+    },
+    "OutOfBoundsError": {
+        "prefix": "OutOfBoundsError",
+        "body": [
+            "OutOfBoundsError $0"
+        ],
+        "description": "OutOfBoundsError"
+    },
+    "Output": {
+        "prefix": "Output",
+        "body": [
+            "Output $0"
+        ],
+        "description": "CyclicDependencyError"
+    },
+    "OutputFactory": {
+        "prefix": "OutputFactory",
+        "body": [
+            "OutputFactory $0"
+        ],
+        "description": "OutputFactory"
+    },
+    "OutputMetadata": {
+        "prefix": "OutputMetadata",
+        "body": [
+            "OutputMetadata $0"
+        ],
+        "description": "OutputMetadata"
+    },
+    "PACKAGE_ROOT_URL": {
+        "prefix": "PACKAGE_ROOT_URL",
+        "body": [
+            "PACKAGE_ROOT_URL $0"
+        ],
+        "description": "PACKAGE_ROOT_URL"
+    },
+    "PLATFORM_COMMON_PROVIDERS": {
+        "prefix": "PLATFORM_COMMON_PROVIDERS",
+        "body": [
+            "PLATFORM_COMMON_PROVIDERS $0"
+        ],
+        "description": "PLATFORM_COMMON_PROVIDERS"
+    },
+    "PLATFORM_DIRECTIVES": {
+        "prefix": "PLATFORM_DIRECTIVES",
+        "body": [
+            "PLATFORM_DIRECTIVES $0"
+        ],
+        "description": "PLATFORM_DIRECTIVES"
+    },
+    "PLATFORM_INITIALIZER": {
+        "prefix": "PLATFORM_INITIALIZER",
+        "body": [
+            "PLATFORM_INITIALIZER $0"
+        ],
+        "description": "PLATFORM_INITIALIZER"
+    },
+    "PipeFactory": {
+        "prefix": "PipeFactory",
+        "body": [
+            "PipeFactory $0"
+        ],
+        "description": "PipeFactory"
+    },
+    "PipeMetadata": {
+        "prefix": "PipeMetadata",
+        "body": [
+            "PipeMetadata $0"
+        ],
+        "description": "PipeMetadata"
+    },
+    "PipeTransform": {
+        "prefix": "PipeTransform",
+        "body": [
+            "PipeTransform $0"
+        ],
+        "description": "PipeTransform"
+    },
+    "PlatformRef": {
+        "prefix": "PlatformRef",
+        "body": [
+            "PlatformRef $0"
+        ],
+        "description": "PlatformRef"
+    },
+    "ProtoViewRef": {
+        "prefix": "ProtoViewRef",
+        "body": [
+            "ProtoViewRef $0"
+        ],
+        "description": "ProtoViewRef"
+    },
+    "Provider": {
+        "prefix": "Provider",
+        "body": [
+            "Provider $0"
+        ],
+        "description": "Provider"
+    },
+    "ProviderBuilder": {
+        "prefix": "ProviderBuilder",
+        "body": [
+            "ProviderBuilder $0"
+        ],
+        "description": "ProviderBuilder"
+    },
+    "Query": {
+        "prefix": "Query",
+        "body": [
+            "Query $0"
+        ],
+        "description": "Query"
+    },
+    "QueryFactory": {
+        "prefix": "QueryFactory",
+        "body": [
+            "QueryFactory $0"
+        ],
+        "description": "QueryFactory"
+    },
+    "QueryList": {
+        "prefix": "QueryList",
+        "body": [
+            "QueryList $0"
+        ],
+        "description": "QueryList"
+    },
+    "QueryMetadata": {
+        "prefix": "QueryMetadata",
+        "body": [
+            "QueryMetadata $0"
+        ],
+        "description": "QueryMetadata"
+    },
+    "ReflectionInfo": {
+        "prefix": "ReflectionInfo",
+        "body": [
+            "ReflectionInfo $0"
+        ],
+        "description": "ReflectionInfo"
+    },
+    "Reflector": {
+        "prefix": "Reflector",
+        "body": [
+            "Reflector $0"
+        ],
+        "description": "Reflector"
+    },
+    "RenderBeginCmd": {
+        "prefix": "RenderBeginCmd",
+        "body": [
+            "RenderBeginCmd $0"
+        ],
+        "description": "RenderBeginCmd"
+    },
+    "RenderBeginComponentCmd": {
+        "prefix": "RenderBeginComponentCmd",
+        "body": [
+            "RenderBeginComponentCmd $0"
+        ],
+        "description": "RenderBeginComponentCmd"
+    },
+    "RenderBeginElementCmd": {
+        "prefix": "RenderBeginElementCmd",
+        "body": [
+            "RenderBeginElementCmd $0"
+        ],
+        "description": "RenderBeginElementCmd"
+    },
+    "RenderCommandVisitor": {
+        "prefix": "RenderCommandVisitor",
+        "body": [
+            "RenderCommandVisitor $0"
+        ],
+        "description": "RenderCommandVisitor"
+    },
+    "RenderComponentTemplate": {
+        "prefix": "RenderComponentTemplate",
+        "body": [
+            "RenderComponentTemplate $0"
+        ],
+        "description": "RenderComponentTemplate"
+    },
+    "RenderElementRef": {
+        "prefix": "RenderElementRef",
+        "body": [
+            "RenderElementRef $0"
+        ],
+        "description": "RenderElementRef"
+    },
+    "RenderEmbeddedTemplateCmd": {
+        "prefix": "RenderEmbeddedTemplateCmd",
+        "body": [
+            "RenderEmbeddedTemplateCmd $0"
+        ],
+        "description": "RenderEmbeddedTemplateCmd"
+    },
+    "RenderEventDispatcher": {
+        "prefix": "RenderEventDispatcher",
+        "body": [
+            "RenderEventDispatcher $0"
+        ],
+        "description": "RenderEventDispatcher"
+    },
+    "RenderFragmentRef": {
+        "prefix": "RenderFragmentRef",
+        "body": [
+            "RenderFragmentRef $0"
+        ],
+        "description": "RenderFragmentRef"
+    },
+    "RenderNgContentCmd": {
+        "prefix": "RenderNgContentCmd",
+        "body": [
+            "RenderNgContentCmd $0"
+        ],
+        "description": "RenderNgContentCmd"
+    },
+    "RenderProtoViewRef": {
+        "prefix": "RenderProtoViewRef",
+        "body": [
+            "RenderProtoViewRef $0"
+        ],
+        "description": "RenderProtoViewRef"
+    },
+    "RenderTemplateCmd": {
+        "prefix": "RenderTemplateCmd",
+        "body": [
+            "RenderTemplateCmd $0"
+        ],
+        "description": "RenderTemplateCmd"
+    },
+    "RenderTextCmd": {
+        "prefix": "RenderTextCmd",
+        "body": [
+            "RenderTextCmd $0"
+        ],
+        "description": "RenderTextCmd"
+    },
+    "RenderViewRef": {
+        "prefix": "RenderViewRef",
+        "body": [
+            "RenderViewRef $0"
+        ],
+        "description": "RenderViewRef"
+    },
+    "RenderViewWithFragments": {
+        "prefix": "RenderViewWithFragments",
+        "body": [
+            "RenderViewWithFragments $0"
+        ],
+        "description": "RenderViewWithFragments"
+    },
+    "Renderer": {
+        "prefix": "Renderer",
+        "body": [
+            "Renderer $0"
+        ],
+        "description": "Renderer"
+    },
+    "ResolvedBinding": {
+        "prefix": "ResolvedBinding",
+        "body": [
+            "ResolvedBinding $0"
+        ],
+        "description": "ResolvedBinding"
+    },
+    "ResolvedFactory": {
+        "prefix": "ResolvedFactory",
+        "body": [
+            "ResolvedFactory $0"
+        ],
+        "description": "ResolvedFactory"
+    },
+    "ResolvedProvider": {
+        "prefix": "ResolvedProvider",
+        "body": [
+            "ResolvedProvider $0"
+        ],
+        "description": "ResolvedProvider"
+    },
+    "Scope": {
+        "prefix": "Scope",
+        "body": [
+            "Scope $0"
+        ],
+        "description": "Scope"
+    },
+    "Self": {
+        "prefix": "Self",
+        "body": [
+            "Self $0"
+        ],
+        "description": "Self"
+    },
+    "SelfFactory": {
+        "prefix": "SelfFactory",
+        "body": [
+            "SelfFactory $0"
+        ],
+        "description": "SelfFactory"
+    },
+    "SelfMetadata": {
+        "prefix": "SelfMetadata",
+        "body": [
+            "SelfMetadata $0"
+        ],
+        "description": "SelfMetadata"
+    },
+    "SimpleChange": {
+        "prefix": "SimpleChange",
+        "body": [
+            "SimpleChange $0"
+        ],
+        "description": "SimpleChange"
+    },
+    "SkipSelf": {
+        "prefix": "SkipSelf",
+        "body": [
+            "SkipSelf $0"
+        ],
+        "description": "SkipSelf"
+    },
+    "SkipSelfFactory": {
+        "prefix": "SkipSelfFactory",
+        "body": [
+            "SkipSelfFactory $0"
+        ],
+        "description": "SkipSelfFactory"
+    },
+    "SkipSelfMetadata": {
+        "prefix": "SkipSelfMetadata",
+        "body": [
+            "SkipSelfMetadata $0"
+        ],
+        "description": "SkipSelfMetadata"
+    },
+    "TemplateRef": {
+        "prefix": "TemplateRef",
+        "body": [
+            "TemplateRef $0"
+        ],
+        "description": "TemplateRef"
+    },
+    "Testability": {
+        "prefix": "Testability",
+        "body": [
+            "Testability $0"
+        ],
+        "description": "Testability"
+    },
+    "TestabilityRegistry": {
+        "prefix": "TestabilityRegistry",
+        "body": [
+            "TestabilityRegistry $0"
+        ],
+        "description": "TestabilityRegistry"
+    },
+    "Type": {
+        "prefix": "Type",
+        "body": [
+            "Type $0"
+        ],
+        "description": "Type"
+    },
+    "TypeDecorator": {
+        "prefix": "TypeDecorator",
+        "body": [
+            "TypeDecorator $0"
+        ],
+        "description": "TypeDecorator"
+    },
+    "TypeLiteral": {
+        "prefix": "TypeLiteral",
+        "body": [
+            "TypeLiteral $0"
+        ],
+        "description": "TypeLiteral"
+    },
+    "View": {
+        "prefix": "View",
+        "body": [
+            "View $0"
+        ],
+        "description": "View"
+    },
+    "ViewChild": {
+        "prefix": "ViewChild",
+        "body": [
+            "ViewChild $0"
+        ],
+        "description": "ViewChild"
+    },
+    "ViewChildFactory": {
+        "prefix": "ViewChildFactory",
+        "body": [
+            "ViewChildFactory $0"
+        ],
+        "description": "ViewChildFactory"
+    },
+    "ViewChildMetadata": {
+        "prefix": "ViewChildMetadata",
+        "body": [
+            "ViewChildMetadata $0"
+        ],
+        "description": "ViewChildMetadata"
+    },
+    "ViewChildren": {
+        "prefix": "ViewChildren",
+        "body": [
+            "ViewChildren $0"
+        ],
+        "description": "ViewChildren"
+    },
+    "ViewChildrenFactory": {
+        "prefix": "ViewChildrenFactory",
+        "body": [
+            "ViewChildrenFactory $0"
+        ],
+        "description": "ViewChildrenFactory"
+    },
+    "ViewChildrenMetadata": {
+        "prefix": "ViewChildrenMetadata",
+        "body": [
+            "ViewChildrenMetadata $0"
+        ],
+        "description": "ViewChildrenMetadata"
+    },
+    "ViewContainerRef": {
+        "prefix": "ViewContainerRef",
+        "body": [
+            "ViewContainerRef $0"
+        ],
+        "description": "ViewContainerRef"
+    },
+    "ViewDecorator": {
+        "prefix": "ViewDecorator",
+        "body": [
+            "ViewDecorator $0"
+        ],
+        "description": "ViewDecorator"
+    },
+    "ViewEncapsulation": {
+        "prefix": "ViewEncapsulation",
+        "body": [
+            "ViewEncapsulation $0"
+        ],
+        "description": "ViewEncapsulation"
+    },
+    "ViewFactory": {
+        "prefix": "ViewFactory",
+        "body": [
+            "ViewFactory $0"
+        ],
+        "description": "ViewFactory"
+    },
+    "ViewMetadata": {
+        "prefix": "ViewMetadata",
+        "body": [
+            "ViewMetadata $0"
+        ],
+        "description": "ViewMetadata"
+    },
+    "ViewQuery": {
+        "prefix": "ViewQuery",
+        "body": [
+            "ViewQuery $0"
+        ],
+        "description": "ViewQuery"
+    },
+    "ViewQueryMetadata": {
+        "prefix": "ViewQueryMetadata",
+        "body": [
+            "ViewQueryMetadata $0"
+        ],
+        "description": "ViewQueryMetadata"
+    },
+    "ViewRef": {
+        "prefix": "ViewRef",
+        "body": [
+            "ViewRef $0"
+        ],
+        "description": "ViewRef"
+    },
+    "ViewResolver": {
+        "prefix": "ViewResolver",
+        "body": [
+            "ViewResolver $0"
+        ],
+        "description": "ViewResolver"
+    },
+    "WrappedException": {
+        "prefix": "WrappedException",
+        "body": [
+            "WrappedException $0"
+        ],
+        "description": "WrappedException"
+    },
+    "WrappedValue": {
+        "prefix": "WrappedValue",
+        "body": [
+            "WrappedValue $0"
+        ],
+        "description": "WrappedValue"
+    },
+    "ZeroArgFunction": {
+        "prefix": "ZeroArgFunction",
+        "body": [
+            "ZeroArgFunction $0"
+        ],
+        "description": "ZeroArgFunction"
+    },
+    "asNativeElements": {
+        "prefix": "asNativeElements",
+        "body": [
+            "asNativeElements $0"
+        ],
+        "description": "asNativeElements"
+    },
+    "bind": {
+        "prefix": "bind",
+        "body": [
+            "bind $0"
+        ],
+        "description": "bind"
+    },
+    "createNgZone": {
+        "prefix": "createNgZone",
+        "body": [
+            "createNgZone $0"
+        ],
+        "description": "createNgZone"
+    },
+    "enableProdMode": {
+        "prefix": "enableProdMode",
+        "body": [
+            "enableProdMode $0"
+        ],
+        "description": "enableProdMode"
+    },
+    "forwardRef": {
+        "prefix": "forwardRef",
+        "body": [
+            "forwardRef $0"
+        ],
+        "description": "forwardRef"
+    },
+    "inspectElement": {
+        "prefix": "inspectElement",
+        "body": [
+            "inspectElement $0"
+        ],
+        "description": "inspectElement"
+    },
+    "platform": {
+        "prefix": "platform",
+        "body": [
+            "platform $0"
+        ],
+        "description": "platform"
+    },
+    "provide": {
+        "prefix": "provide",
+        "body": [
+            "provide $0"
+        ],
+        "description": "provide"
+    },
+    "reflector": {
+        "prefix": "reflector",
+        "body": [
+            "reflector $0"
+        ],
+        "description": "reflector"
+    },
+    "resolveForwardRef": {
+        "prefix": "resolveForwardRef",
+        "body": [
+            "resolveForwardRef $0"
+        ],
+        "description": "resolveForwardRef"
+    },
+    "setTestabilityGetter": {
+        "prefix": "setTestabilityGetter",
+        "body": [
+            "setTestabilityGetter $0"
+        ],
+        "description": "setTestabilityGetter"
+    },
+    "BaseRequestOptions": {
+        "prefix": "BaseRequestOptions",
+        "body": [
+            "BaseRequestOptions $0"
+        ],
+        "description": "BaseRequestOptions"
+    },
+    "BaseResponseOptions": {
+        "prefix": "BaseResponseOptions",
+        "body": [
+            "BaseResponseOptions $0"
+        ],
+        "description": "BaseResponseOptions"
+    },
+    "BrowserXhr": {
+        "prefix": "BrowserXhr",
+        "body": [
+            "BrowserXhr $0"
+        ],
+        "description": "BrowserXhr"
+    },
+    "Connection": {
+        "prefix": "Connection",
+        "body": [
+            "Connection $0"
+        ],
+        "description": "Connection"
+    },
+    "ConnectionBackend": {
+        "prefix": "ConnectionBackend",
+        "body": [
+            "ConnectionBackend $0"
+        ],
+        "description": "ConnectionBackend"
+    },
+    "HTTP_BINDINGS": {
+        "prefix": "HTTP_BINDINGS",
+        "body": [
+            "HTTP_BINDINGS $0"
+        ],
+        "description": "HTTP_BINDINGS"
+    },
+    "HTTP_PROVIDERS": {
+        "prefix": "HTTP_PROVIDERS",
+        "body": [
+            "HTTP_PROVIDERS $0"
+        ],
+        "description": "HTTP_PROVIDERS"
+    },
+    "Headers": {
+        "prefix": "Headers",
+        "body": [
+            "Headers $0"
+        ],
+        "description": "Headers"
+    },
+    "Http": {
+        "prefix": "Http",
+        "body": [
+            "Http $0"
+        ],
+        "description": "Http"
+    },
+    "JSONPBackend": {
+        "prefix": "JSONPBackend",
+        "body": [
+            "JSONPBackend $0"
+        ],
+        "description": "JSONPBackend"
+    },
+    "JSONPConnection": {
+        "prefix": "JSONPConnection",
+        "body": [
+            "JSONPConnection $0"
+        ],
+        "description": "JSONPConnection"
+    },
+    "JSONP_PROVIDERS": {
+        "prefix": "JSONP_PROVIDERS",
+        "body": [
+            "JSONP_PROVIDERS $0"
+        ],
+        "description": "JSONP_PROVIDERS"
+    },
+    "JSON_BINDINGS": {
+        "prefix": "JSON_BINDINGS",
+        "body": [
+            "JSON_BINDINGS $0"
+        ],
+        "description": "JSON_BINDINGS"
+    },
+    "Jsonp": {
+        "prefix": "Jsonp",
+        "body": [
+            "Jsonp $0"
+        ],
+        "description": "Jsonp"
+    },
+    "ReadyState": {
+        "prefix": "Provider",
+        "body": [
+            "ReadyState $0"
+        ],
+        "description": "ReadyState"
+    },
+    "Request": {
+        "prefix": "Request",
+        "body": [
+            "Request $0"
+        ],
+        "description": "Request"
+    },
+    "RequestMethod": {
+        "prefix": "RequestMethod",
+        "body": [
+            "RequestMethod $0"
+        ],
+        "description": "RequestMethod"
+    },
+    "RequestOptions": {
+        "prefix": "RequestOptions",
+        "body": [
+            "RequestOptions $0"
+        ],
+        "description": "RequestOptions"
+    },
+    "RequestOptionsArgs": {
+        "prefix": "RequestOptionsArgs",
+        "body": [
+            "RequestOptionsArgs $0"
+        ],
+        "description": "RequestOptionsArgs"
+    },
+    "Response": {
+        "prefix": "Response",
+        "body": [
+            "Response $0"
+        ],
+        "description": "Response"
+    },
+    "ResponseOptions": {
+        "prefix": "ResponseOptions",
+        "body": [
+            "ResponseOptions $0"
+        ],
+        "description": "ResponseOptions"
+    },
+    "ResponseType": {
+        "prefix": "ResponseType",
+        "body": [
+            "ResponseType $0"
+        ],
+        "description": "ResponseType"
+    },
+    "URLSearchParams": {
+        "prefix": "URLSearchParams",
+        "body": [
+            "URLSearchParams $0"
+        ],
+        "description": "URLSearchParams"
+    },
+    "XHRBackend": {
+        "prefix": "XHRBackend",
+        "body": [
+            "XHRBackend $0"
+        ],
+        "description": "XHRBackend"
+    },
+    "XHRConnection": {
+        "prefix": "XHRConnection",
+        "body": [
+            "XHRConnection $0"
+        ],
+        "description": "XHRConnection"
+    },
+    "MockBackend": {
+        "prefix": "MockBackend",
+        "body": [
+            "MockBackend $0"
+        ],
+        "description": "MockBackend"
+    },
+    "MockConnection": {
+        "prefix": "MockConnection",
+        "body": [
+            "MockConnection $0"
+        ],
+        "description": "MockConnection"
+    },
+    "WtfScopeFn": {
+        "prefix": "WtfScopeFn",
+        "body": [
+            "WtfScopeFn $0"
+        ],
+        "description": "WtfScopeFn"
+    },
+    "wtfCreateScope": {
+        "prefix": "wtfCreateScope",
+        "body": [
+            "wtfCreateScope $0"
+        ],
+        "description": "wtfCreateScope"
+    },
+    "wtfEndTimeRange": {
+        "prefix": "wtfEndTimeRange",
+        "body": [
+            "wtfEndTimeRange $0"
+        ],
+        "description": "wtfEndTimeRange"
+    },
+    "wtfLeave": {
+        "prefix": "wtfLeave",
+        "body": [
+            "wtfLeave $0"
+        ],
+        "description": "wtfLeave"
+    },
+    "AngularEntrypoint": {
+        "prefix": "AngularEntrypoint",
+        "body": [
+            "AngularEntrypoint $0"
+        ],
+        "description": "AngularEntrypoint"
+    },
+    "BROWSER_APP_PROVIDERS": {
+        "prefix": "BROWSER_APP_PROVIDERS",
+        "body": [
+            "BROWSER_APP_PROVIDERS $0"
+        ],
+        "description": "BROWSER_APP_PROVIDERS"
+    },
+    "BROWSER_PROVIDERS": {
+        "prefix": "BROWSER_PROVIDERS",
+        "body": [
+            "BROWSER_PROVIDERS $0"
+        ],
+        "description": "BROWSER_PROVIDERS"
+    },
+    "BrowserDomAdapter": {
+        "prefix": "BrowserDomAdapter",
+        "body": [
+            "BrowserDomAdapter $0"
+        ],
+        "description": "BrowserDomAdapter"
+    },
+    "By": {
+        "prefix": "By",
+        "body": [
+            "By $0"
+        ],
+        "description": "By"
+    },
+    "DOCUMENT": {
+        "prefix": "DOCUMENT",
+        "body": [
+            "DOCUMENT $0"
+        ],
+        "description": "DOCUMENT"
+    },
+    "ELEMENT_PROBE_BINDINGS": {
+        "prefix": "ELEMENT_PROBE_BINDINGS",
+        "body": [
+            "ELEMENT_PROBE_BINDINGS $0"
+        ],
+        "description": "ELEMENT_PROBE_BINDINGS"
+    },
+    "Title": {
+        "prefix": "Title",
+        "body": [
+            "Title $0"
+        ],
+        "description": "Title"
+    },
+    "bootstrap": {
+        "prefix": "bootstrap",
+        "body": [
+            "bootstrap $0"
+        ],
+        "description": "bootstrap"
+    },
+    "disableDebugTools": {
+        "prefix": "disableDebugTools",
+        "body": [
+            "disableDebugTools $0"
+        ],
+        "description": "disableDebugTools"
+    },
+    "enableDebugTools": {
+        "prefix": "enableDebugTools",
+        "body": [
+            "enableDebugTools $0"
+        ],
+        "description": "enableDebugTools"
+    },
+    "inspectNativeElement": {
+        "prefix": "inspectNativeElement",
+        "body": [
+            "inspectNativeElement $0"
+        ],
+        "description": "inspectNativeElement"
+    },
+    "APP_BASE_HREF": {
+        "prefix": "APP_BASE_HREF",
+        "body": [
+            "APP_BASE_HREF $0"
+        ],
+        "description": "APP_BASE_HREF"
+    },
+    "AsyncRoute": {
+        "prefix": "AsyncRoute",
+        "body": [
+            "AsyncRoute $0"
+        ],
+        "description": "AsyncRoute"
+    },
+    "AuxRoute": {
+        "prefix": "AuxRoute",
+        "body": [
+            "AuxRoute $0"
+        ],
+        "description": "AuxRoute"
+    },
+    "CanActivate": {
+        "prefix": "CanActivate",
+        "body": [
+            "CanActivate $0"
+        ],
+        "description": "CanActivate"
+    },
+    "CanDeactivate": {
+        "prefix": "CanDeactivate",
+        "body": [
+            "CanDeactivate $0"
+        ],
+        "description": "CanDeactivate"
+    },
+    "CanReuse": {
+        "prefix": "CanReuse",
+        "body": [
+            "CanReuse $0"
+        ],
+        "description": "CanReuse"
+    },
+    "ComponentDefinition": {
+        "prefix": "ComponentDefinition",
+        "body": [
+            "ComponentDefinition $0"
+        ],
+        "description": "ComponentDefinition"
+    },
+    "ComponentInstruction": {
+        "prefix": "ComponentInstruction",
+        "body": [
+            "ComponentInstruction $0"
+        ],
+        "description": "ComponentInstruction"
+    },
+    "HashLocationStrategy": {
+        "prefix": "HashLocationStrategy",
+        "body": [
+            "HashLocationStrategy $0"
+        ],
+        "description": "HashLocationStrategy"
+    },
+    "Instruction": {
+        "prefix": "Instruction",
+        "body": [
+            "Instruction $0"
+        ],
+        "description": "Instruction"
+    },
+    "Location": {
+        "prefix": "Location",
+        "body": [
+            "Location $0"
+        ],
+        "description": "Location"
+    },
+    "LocationStrategy": {
+        "prefix": "LocationStrategy",
+        "body": [
+            "LocationStrategy $0"
+        ],
+        "description": "LocationStrategy"
+    },
+    "OnActivate": {
+        "prefix": "OnActivate",
+        "body": [
+            "OnActivate $0"
+        ],
+        "description": "OnActivate"
+    },
+    "OnDeactivate": {
+        "prefix": "OnDeactivate",
+        "body": [
+            "OnDeactivate $0"
+        ],
+        "description": "OnDeactivate"
+    },
+    "OnReuse": {
+        "prefix": "OnReuse",
+        "body": [
+            "OnReuse $0"
+        ],
+        "description": "OnReuse"
+    },
+    "PathLocationStrategy": {
+        "prefix": "PathLocationStrategy",
+        "body": [
+            "PathLocationStrategy $0"
+        ],
+        "description": "PathLocationStrategy"
+    },
+    "PlatformLocation": {
+        "prefix": "PlatformLocation",
+        "body": [
+            "PlatformLocation $0"
+        ],
+        "description": "PlatformLocation"
+    },
+    "ROUTER_BINDINGS": {
+        "prefix": "ROUTER_BINDINGS",
+        "body": [
+            "ROUTER_BINDINGS $0"
+        ],
+        "description": "ROUTER_BINDINGS"
+    },
+    "ROUTER_DIRECTIVES": {
+        "prefix": "ROUTER_DIRECTIVES",
+        "body": [
+            "ROUTER_DIRECTIVES $0"
+        ],
+        "description": "ROUTER_DIRECTIVES"
+    },
+    "ROUTER_PRIMARY_COMPONENT": {
+        "prefix": "ROUTER_PRIMARY_COMPONENT",
+        "body": [
+            "ROUTER_PRIMARY_COMPONENT $0"
+        ],
+        "description": "ROUTER_PRIMARY_COMPONENT"
+    },
+    "ROUTER_PROVIDERS": {
+        "prefix": "ROUTER_PROVIDERS",
+        "body": [
+            "ROUTER_PROVIDERS $0"
+        ],
+        "description": "ROUTER_PROVIDERS"
+    },
+    "Redirect": {
+        "prefix": "Redirect",
+        "body": [
+            "Redirect $0"
+        ],
+        "description": "Redirect"
+    },
+    "Route": {
+        "prefix": "Route",
+        "body": [
+            "Route $0"
+        ],
+        "description": "Route"
+    },
+    "RouteConfig": {
+        "prefix": "RouteConfig",
+        "body": [
+            "RouteConfig $0"
+        ],
+        "description": "RouteConfig"
+    },
+    "RouteData": {
+        "prefix": "RouteData",
+        "body": [
+            "RouteData $0"
+        ],
+        "description": "RouteData"
+    },
+    "RouteDefinition": {
+        "prefix": "RouteDefinition",
+        "body": [
+            "RouteDefinition $0"
+        ],
+        "description": "RouteDefinition"
+    },
+    "RouteParams": {
+        "prefix": "RouteParams",
+        "body": [
+            "RouteParams $0"
+        ],
+        "description": "RouteParams"
+    },
+    "RouteRegistry": {
+        "prefix": "RouteRegistry",
+        "body": [
+            "RouteRegistry $0"
+        ],
+        "description": "RouteRegistry"
+    },
+    "Router": {
+        "prefix": "Router",
+        "body": [
+            "Router $0"
+        ],
+        "description": "Router"
+    },
+    "RouterLink": {
+        "prefix": "RouterLink",
+        "body": [
+            "RouterLink $0"
+        ],
+        "description": "RouterLink"
+    },
+    "RouterOutlet": {
+        "prefix": "RouterOutlet",
+        "body": [
+            "RouterOutlet $0"
+        ],
+        "description": "RouterOutlet"
+    },
+    "MockLocationStrategy": {
+        "prefix": "MockLocationStrategy",
+        "body": [
+            "MockLocationStrategy $0"
+        ],
+        "description": "MockLocationStrategy"
+    },
+    "SpyLocation": {
+        "prefix": "SpyLocation",
+        "body": [
+            "SpyLocation $0"
+        ],
+        "description": "SpyLocation"
+    },
+    "FunctionWithParamTokens": {
+        "prefix": "FunctionWithParamTokens",
+        "body": [
+            "FunctionWithParamTokens $0"
+        ],
+        "description": "FunctionWithParamTokens"
+    },
+    "MockApplicationRef": {
+        "prefix": "MockApplicationRef",
+        "body": [
+            "MockApplicationRef $0"
+        ],
+        "description": "MockApplicationRef"
+    },
+    "MockDirectiveResolver": {
+        "prefix": "MockDirectiveResolver",
+        "body": [
+            "MockDirectiveResolver $0"
+        ],
+        "description": "MockDirectiveResolver"
+    },
+    "MockNgZone": {
+        "prefix": "MockNgZone",
+        "body": [
+            "MockNgZone $0"
+        ],
+        "description": "MockNgZone"
+    },
+    "MockViewResolver": {
+        "prefix": "MockViewResolver",
+        "body": [
+            "MockViewResolver $0"
+        ],
+        "description": "MockViewResolver"
+    },
+    "MockXHR": {
+        "prefix": "MockXHR",
+        "body": [
+            "MockXHR $0"
+        ],
+        "description": "MockXHR"
+    },
+    "NgMatchers": {
+        "prefix": "NgMatchers",
+        "body": [
+            "NgMatchers $0"
+        ],
+        "description": "NgMatchers"
+    },
+    "TestInjector": {
+        "prefix": "TestInjector",
+        "body": [
+            "TestInjector $0"
+        ],
+        "description": "TestInjector"
+    },
+    "afterEach": {
+        "prefix": "afterEach",
+        "body": [
+            "afterEach $0"
+        ],
+        "description": "afterEach"
+    },
+    "beforeEach": {
+        "prefix": "beforeEach",
+        "body": [
+            "beforeEach $0"
+        ],
+        "description": "beforeEach"
+    },
+    "beforeEachProviders": {
+        "prefix": "beforeEachProviders",
+        "body": [
+            "beforeEachProviders $0"
+        ],
+        "description": "beforeEachProviders"
+    },
+    "clearPendingTimers": {
+        "prefix": "clearPendingTimers",
+        "body": [
+            "clearPendingTimers $0"
+        ],
+        "description": "clearPendingTimers"
+    },
+    "createTestInjector": {
+        "prefix": "MockNgZcreateTestInjectorne",
+        "body": [
+            "createTestInjector $0"
+        ],
+        "description": "createTestInjector"
+    },
+    "createTestInjectorWithRuntimeCompiler": {
+        "prefix": "createTestInjectorWithRuntimeCompiler",
+        "body": [
+            "createTestInjectorWithRuntimeCompiler $0"
+        ],
+        "description": "createTestInjectorWithRuntimeCompiler"
+    },
+    "ddescribe": {
+        "prefix": "ddescribe",
+        "body": [
+            "ddescribe $0"
+        ],
+        "description": "ddescribe"
+    },
+    "describe": {
+        "prefix": "describe",
+        "body": [
+            "describe $0"
+        ],
+        "description": "describe"
+    },
+    "expect": {
+        "prefix": "expect",
+        "body": [
+            "expect $0"
+        ],
+        "description": "expect"
+    },
+    "fakeAsync": {
+        "prefix": "fakeAsync",
+        "body": [
+            "fakeAsync $0"
+        ],
+        "description": "fakeAsync"
+    },
+    "fdescribe": {
+        "prefix": "fdescribe",
+        "body": [
+            "fdescribe $0"
+        ],
+        "description": "fdescribe"
+    },
+    "fit": {
+        "prefix": "fit",
+        "body": [
+            "fit $0"
+        ],
+        "description": "fit"
+    },
+    "flushMicrotasks": {
+        "prefix": "flushMicrotasks",
+        "body": [
+            "flushMicrotasks $0"
+        ],
+        "description": "flushMicrotasks"
+    },
+    "getTestInjector": {
+        "prefix": "getTestInjector",
+        "body": [
+            "getTestInjector $0"
+        ],
+        "description": "getTestInjector"
+    },
+    "iit": {
+        "prefix": "iit",
+        "body": [
+            "iit $0"
+        ],
+        "description": "iit"
+    },
+    "inject": {
+        "prefix": "inject",
+        "body": [
+            "inject $0"
+        ],
+        "description": "MockNgZone"
+    },
+    "injectAsync": {
+        "prefix": "injectAsync",
+        "body": [
+            "injectAsync $0"
+        ],
+        "description": "injectAsync"
+    },
+    "it": {
+        "prefix": "it",
+        "body": [
+            "it $0"
+        ],
+        "description": "it"
+    },
+    "tick": {
+        "prefix": "tick",
+        "body": [
+            "tick $0"
+        ],
+        "description": "tick"
+    },
+    "xdescribe": {
+        "prefix": "xdescribe",
+        "body": [
+            "xdescribe $0"
+        ],
+        "description": "xdescribe"
+    },
+    "xit": {
+        "prefix": "xit",
+        "body": [
+            "xit $0"
+        ],
+        "description": "xit"
+    }
 }
