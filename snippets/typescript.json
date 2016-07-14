@@ -1,39 +1,33 @@
 {
-    "Bootstrap with router": {
-        "prefix": "ngbootstrap-router",
+    /*
+	 // Place your snippets for TypeScript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	 // $1, $2 for tab stops, ${id} and ${id:label} and ${1:label} for variables. Variables with the same id are connected.
+	 // Example:
+	 "Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+*/
+    "Angular Bootstrap": {
+        "prefix": "ng2bootstrap",
         "body": [
-           // main entry point
-            "import { bootstrap }            from '@angular/platform-browser-dynamic';",
-            "import { ${AppComponent} }         from './${app.component}';",
-            "import { APP_ROUTER_PROVIDERS } from './${app.routes}';",
+            "import {provide} from 'angular2/core';",
+            "import {bootstrap} from 'angular2/platform/browser';",
+            "import {ROUTER_PROVIDERS, APP_BASE_HREF, LocationStrategy, HashLocationStrategy} from 'angular2/router';",
+            "import {${AppCmp}} from './${components}/${app}/${app}';",
             "",
-            "bootstrap(${AppComponent}, [",
-            "APP_ROUTER_PROVIDERS",
-            "])",
-            ".catch(err => console.error(err));"
+            "bootstrap(${AppCmp}, [",
+            "	ROUTER_PROVIDERS,",
+            "	provide(LocationStrategy, { useClass: HashLocationStrategy })",
+            "]);"
         ],
-        "description": "Bootstrap app with routes"
+        "description": "Create a bootstrap code for angular2 application"
     },
-    "bootstrap with hash URL strategy": {
-            "prefix": "ngbootstrap-hash-url-strategy",
-            "body": [
-            // main entry point
-            "import { bootstrap }            from '@angular/platform-browser-dynamic';",
-            // Add these symbols to override the `LocationStrategy`
-            "import { LocationStrategy,",
-            "HashLocationStrategy } from '@angular/common';",
-            "import { ${AppComponent} }         from './${app.component}';",
-            "import { APP_ROUTER_PROVIDERS } from './${app.routes}';",
-            "",
-            "bootstrap(${AppComponent}, [",
-            "APP_ROUTER_PROVIDERS,",
-            "{ provide: LocationStrategy, useClass: HashLocationStrategy } ",
-            "])",
-            ".catch(err => console.error(err));"
-            ],
-            "description": "Bootstrap app with routes"
-        },
-
     "Angular App Component": {
         "prefix": "ng2appComp",
         "body": [
@@ -432,23 +426,6 @@
             "                expect(${actualValue}).toBe(${'expected value'});",
             "                async.done();",
             "    }));"
-        ],
-        "description": "Create it test scenario function"
-    },
-    "RouteConfig object": {
-        "prefix": "RouteConfig",
-        "body": [
-            "import { provideRouter, RouterConfig } from '@angular/router';",
-            "",
-            "export const routes: RouterConfig = [",
-            "  { path: '${comp1-route-path}', component: ${Component1} },",
-            "  { path: '${comp2-route-path}', component: ${Component2} },",
-            "  { path: '${comp3-route-path}/${:id}', component: ${Component3} }",
-            "];",
-            "",
-            "export const APP_ROUTER_PROVIDERS = [",
-            "  provideRouter(routes)",
-            "];"
         ],
         "description": "Create it test scenario function"
     }
