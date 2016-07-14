@@ -236,20 +236,20 @@
     "NgFor": {
         "prefix": "ngFor",
         "body": [
-            "*ngFor=\"#${loopVariable} of ${list}\" $0"
+            "*ngFor=\"let ${item} of ${collection}\" $0"
         ],
-        "description": "ngFor. *ngFor=\"#item of list\""
+        "description": "ngFor. *ngFor=\"let item of collection\""
     },
     "NgFor <li>": {
         "prefix": "ngFor-li",
         "body": [
             "<ul>",
-            "\t<li *ngFor=\"#${loopVariable} of ${list}\">",
-            "\t\t{{${loopVariable}}}$0",
+            "\t<li *ngFor=\"let item of collection\">",
+            "\t\t{{${item}}}$0",
             "\t</li>",
             "</ul>"
         ],
-        "description": "ngFor on <li>. <li *ngFor=\"#item of list\">{{item}}</li>"
+        "description": "ngFor on <li>. <li *ngFor=\"let item of collection\">{{item}}</li>"
     },
     "ngSwitch": {
         "prefix": "ngSwitch",
@@ -421,5 +421,57 @@
             "[ngStyle]=\"{'${key1}': ${value1}, '${key2}': ${value2}\"}"
         ],
         "description": "ngStyle snippet"
+    },
+
+    // RC4 support
+    "base-href": {
+        "prefix": "base-href",
+        "body": [
+            "<base href=\"/\">"
+        ],
+        "description": "HTML 5 style navigation is the Component Router default. Learn why HTML 5 style is preferred, how to adjust its behavior, and how to switch to the older hash (#) style if necessary in the Browser URL Styles appendix below."
+    },
+    "router-outlet": {
+        "prefix": "router-outlet",
+        "body": [
+            "<router-outlet></router-outlet>"
+        ],
+        "description": "<router-outlet></router-outlet>"
+    },
+    "router-link": {
+        "prefix": "router-link",
+        "body": [
+               "<a [routerLink]=\"['/${route-link}']\">${route-text}</a>",
+               "${}"
+        ],
+        "description": "<router-outlet></router-outlet>"
+    },
+    "router-nav": {
+        "prefix": "router-nav",
+        "body": [
+                "<nav>",
+                "<a [routerLink]=\"['/${route1-link}']\">${route1-text}</a>",
+                "<a [routerLink]=\"['/${route2-link}']\">${route2-text}</a>",
+                "</nav>",
+                "<router-outlet></router-outlet>",
+                "${}"
+        ],
+        "description": "<router-outlet></router-outlet>"
+    },
+    "input-value": {
+        "prefix": "input-value",
+        "body": [
+                "<input [value]=\"${source-property}\">",
+                "${}"
+        ],
+        "description": "<router-outlet></router-outlet>"
+    },
+    "button-click": {
+        "prefix": "button-click",
+        "body": [
+                "<button (click)=\"${event-handler}(${$event})\">${text}</button>",
+                "${}"
+        ],
+        "description": "<router-outlet></router-outlet>"
     }
 }
