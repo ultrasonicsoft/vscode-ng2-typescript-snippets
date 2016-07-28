@@ -176,7 +176,7 @@
             "*/",
             "@Pipe({name: '${pipeName}'})",
             "export class ${pipeName}Pipe {",
-            "\ttransform(value:number, args:string[]) : any {",
+            "\ttransform(value:number, args:string[]): any {",
             "\t\treturn Math.pow(value, parseInt(args[0] || '1', 10));",
             "\t}",
             "}"
@@ -299,21 +299,21 @@
     "Template": {
         "prefix": "template",
         "body": [
-            "template : '${html-template}' $0"
+            "template: '${html-template}' $0"
         ],
         "description": "Component's configuration object's template property"
     },
     "Template Url": {
         "prefix": "templateUrl",
         "body": [
-            "templateUrl : `${html-url}` $0"
+            "templateUrl: `${html-url}` $0"
         ],
         "description": "Component's configuration object's templateUrl property"
     },
     "Styles array": {
         "prefix": "styles",
         "body": [
-            "styles : `[${css-class1},${css-class2}]` $0"
+            "styles: `[${css-class1},${css-class2}]` $0"
         ],
         "description": "Component's configuration object's styles property"
     },
