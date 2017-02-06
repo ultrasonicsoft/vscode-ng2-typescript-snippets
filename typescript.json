@@ -1,0 +1,602 @@
+{
+	"Bootstrap with platformBrowserDynamic": {
+		"prefix": "angPlatformBrowserDynamic",
+		"body": [
+			// main entry point
+			"import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';",
+			"import { ${AppModule} } from './${app}/${app.module}';",
+			"platformBrowserDynamic().bootstrapModule(${AppModule});"
+		],
+		"description": "Bootstrap app with platformBrowserDynamic"
+	},
+	"Basic Component class with inline HTML template": {
+		"prefix": "angComponentBasicWithTemplate",
+		"body": [
+			"import { Component } from '@angular/core';",
+			"",
+			"@Component({",
+			"\tselector: '${my-app}',",
+			"\ttemplate: `${<h1>Hello </h1>}`,",
+			"})",
+			"export class ${App}Component  { $0",
+			"}"
+		],
+		"description": "Basic component class with simple selector and html template"
+	},
+	"Basic Component class": {
+		"prefix": "angComponent",
+		"body": [
+			"import { Component } from '@angular/core';",
+			"import 'rxjs/add/observable/throw';",
+			"import 'rxjs/add/operator/map';",
+			"import 'rxjs/add/operator/catch';",
+			"",
+			"@Component({",
+			"\tmoduleId: module.id,",
+			"\tselector: 'sd-app',",
+			"templateUrl: 'app.component.html',",
+			"})",
+			"export class ${App}Component  { ",
+			"\tconstructor() {",
+			"\t\t$0",
+			"\t}",
+			"}"
+		],
+		"description": "Basic component class"
+	},
+	"Basic Component class with Rx Operators": {
+		"prefix": "angComponentRxOperator",
+		"body": [
+			"import { Component } from '@angular/core';",
+			"import 'rxjs/add/observable/throw';",
+			"import 'rxjs/add/operator/map';",
+			"import 'rxjs/add/operator/catch';",
+			"",
+			"@Component({",
+			"\tmoduleId: module.id,",
+			"\tselector: '${sd-app}',",
+			"templateUrl: '${app}.component.html',",
+			"})",
+			"export class ${App}Component  { ",
+			"\tconstructor() {",
+			"\t\t$0",
+			"\t}",
+			"}"
+		],
+		"description": "Basic Component class with Rx Operators"
+	},
+	"Basic App Module class": {
+		"prefix": "angModuleBasic",
+		"body": [
+			"import { NgModule }      from '@angular/core';",
+			"import { BrowserModule } from '@angular/platform-browser';",
+			"",
+			"import { ${AppComponent} }  from './${app.component}';",
+			"",
+			"@NgModule({",
+			"\timports:      [ BrowserModule ],",
+			"\tdeclarations: [ AppComponent ],",
+			"\tbootstrap:    [ AppComponent ]",
+			"})",
+			"export class AppModule { $0 }"
+		],
+		"description": "Basic App module"
+	},
+	"Advance App Module class": {
+		"prefix": "angModuleAdvance",
+		"body": [
+			"import { NgModule } from '@angular/core';",
+			"import { BrowserModule } from '@angular/platform-browser';",
+			"import { APP_BASE_HREF } from '@angular/common';",
+			"import { HttpModule } from '@angular/http';",
+			"import { ${AppComponent} } from './${app.component}';",
+			"import { ${AppRoutingModule} } from './${app-routing.module}';",
+			"import { ${Home}Module } from './${home}/${about}.module';",
+			"import { ${SharedModule} } from './${shared}/${shared}.module';",
+			"",
+			"@NgModule({",
+			"\timports: [BrowserModule, HttpModule, AppRoutingModule, ${Home}Module, ${SharedModule}.forRoot()],",
+			"\tdeclarations: [${AppComponent}],",
+			"\tproviders: [{",
+			"\tprovide: APP_BASE_HREF,",
+			"\tuseValue: '<%= APP_BASE %>'",
+			"}],",
+			"bootstrap: [${AppComponent}]",
+			"})",
+			"export class AppModule { }"
+		],
+		"description": "Advance App module with routing, shared module"
+	},
+	"Routing Module class": {
+		"prefix": "angModuleRouting",
+		"body": [
+			"import { NgModule } from '@angular/core';",
+			"import { RouterModule } from '@angular/router';",
+			"import { ${Home}Component } from './${home}.component';",
+			"",
+			"@NgModule({",
+			"\timports: [",
+			"\t\tRouterModule.forChild([",
+			"\t\t\t{ path: '', component: ${Home}Component }",
+			"\t\t])",
+			"\t],",
+			"\texports: [RouterModule]",
+			"})",
+			"export class ${Home}RoutingModule { ",
+			"\t$0",
+			"}"
+		],
+		"description": "Routing Module class"
+	},
+	"Feature Module class": {
+		"prefix": "angModuleFeature",
+		"body": [
+			"import { NgModule } from '@angular/core';",
+			"import { CommonModule } from '@angular/common';",
+			"import { ${Home}Component } from './${home}.component';",
+			"import { ${Home}RoutingModule } from './${home}-routing.module';",
+			"import { ${SharedModule} } from '../shared/${shared}.module';",
+			"import { ${NameListService} } from '${../shared/name-list/name-list}.service';",
+			"",
+			"@NgModule({",
+			"\timports: [CommonModule, ${Home}RoutingModule, ${SharedModule}],",
+			"\tdeclarations: [${Home}Component],",
+			"\texports: [${Home}Component],",
+			"\tproviders: [${NameListService}]",
+			"})",
+			"export class ${Home}Module { $0 }"
+		],
+		"description": "Feature Module class"
+	},
+	"Full Component class": {
+		"prefix": "angComponentFull",
+		"body": [
+			"import { Component, OnInit } from '@angular/core';",
+			"import { ${NameListService} } from '${../shared/name-list/name-list.service}';",
+			"",
+			"/**",
+			"* This class represents the lazy loaded HomeComponent.",
+			"*/",
+			"@Component({",
+			"\tmoduleId: module.id,",
+			"\tselector: '${sd-home}',",
+			"\ttemplateUrl: '${home}.component.html',",
+			"\tstyleUrls: ['${home}.component.css'],",
+			"})",
+			"export class ${Home}Component implements OnInit {",
+			"\tconstructor(public ${nameList}Service: ${NameListService}) {$1}",
+			"",
+			"\tngOnInit() {",
+			"\t\t$0",
+			"\t}",
+			"}"
+		],
+		"description": "Full Component class"
+	},
+	"Export Components statement": {
+		"prefix": "angExport",
+		"body": [
+			"export * from './${name-list.service}';"
+		],
+		"description": "Export Components statement"
+	},
+	"Service class": {
+		"prefix": "angService",
+		"body": [
+			"import { Injectable } from '@angular/core';",
+			"import { Http, Response } from '@angular/http';",
+			"import { Observable } from 'rxjs/Observable';",
+			"",
+			"/**",
+			"* This class provides the ${NameList} service with methods to read names and add names.",
+			"*/",
+			"@Injectable()",
+			"export class ${NameList}Service {",
+			"/**",
+			"* Creates a new ${NameList}Service with the injected Http.",
+			"* @param {Http} http - The injected Http.",
+			"* @constructor",
+			"*/",
+			"\tconstructor(private http: Http) {$0}",
+			"/**",
+			"* Returns an Observable for the HTTP GET request for the JSON resource.",
+			"* @return {string[]} The Observable for the HTTP request.",
+			"*/",
+			"\tget(): Observable<string[]> {",
+			"\t\treturn this.http.get(${'/assets/data.json'})",
+			"\t\t.map((res: Response) => res.json())",
+			"\t\t//              .do(data => console.log('server data:', data))  // debug",
+			"\t\t.catch(this.handleError);",
+			"\t}",
+			"",
+			"/**",
+			"* Handle HTTP error",
+			"*/",
+			"\tprivate handleError (error: any) {",
+			"\t\tlet errMsg = (error.message) ? error.message :",
+			"\t\terror.status ? `${error.status} - ${error.statusText}` : 'Server error';",
+			"\t\tconsole.error(errMsg); // log to console instead",
+			"\t\treturn Observable.throw(errMsg);",
+			"\t}",
+			"}"
+		],
+		"description": "Service class"
+	},
+	"Simple custom pipe": {
+		"prefix": "angPipeSimple",
+		"body": [
+			"import { Pipe, PipeTransform } from '@angular/core';",
+			"@Pipe({name: '${my}Pipe'})",
+			"export class ${My}Pipe implements PipeTransform {",
+			"\ttransform(value: number, exponent: string): number {",
+			"\t\t$0",
+			"\t\treturn value;",
+			"\t}",
+			"}"
+		],
+		"description": "Simple custom pipe"
+	},
+	"Async Impure Pipe": {
+		"prefix": "angPipeAsync",
+		"body": [
+			"import { Pipe, PipeTransform } from '@angular/core';",
+			"import { Http }                from '@angular/http';",
+			"import 'rxjs/add/operator/map';",
+			"",
+			"@Pipe({",
+			"name: '${pipename}',",
+			"pure: false",
+			"})",
+			"export class ${Async}Pipe  implements PipeTransform {",
+			"/*private cachedData: any = null;",
+			"private cachedUrl = '';*/",
+			"\tconstructor(private http: Http) { }",
+			"",
+			"\ttransform(url: string): any {",
+			"\t\t/*$0if (url !== this.cachedUrl) {",
+			"\t\tthis.cachedData = null;",
+			"\t\tthis.cachedUrl = url;",
+			"\t\tthis.http.get(url)",
+			"\t\t.map( result => result.json() )",
+			"\t\t.subscribe( result => this.cachedData = result );",
+			"\t\t\t}",
+			"\t\treturn this.cachedData;*/",
+			"\t}",
+			"}"
+		],
+		"description": "Async Impure Pipe"
+	},
+	"ngOnChanges with changes event hook": {
+		"prefix": "angNgOnChanges",
+		"body": [
+			"ngOnChanges(changes: SimpleChanges) {",
+			"\tfor (let propName in changes) {",
+			"\t\t$0/*let chng = changes[propName];",
+			"\t\tlet cur  = JSON.stringify(chng.currentValue);",
+			"\t\tlet prev = JSON.stringify(chng.previousValue);",
+			"\t\tthis.changeLog.push(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);*/",
+			"\t}",
+			"}"
+		],
+		"description": "Called after every change to input properties and before processing content or child views."
+	},
+	"ngOnInit event hook": {
+		"prefix": "angNgOnInit",
+		"body": [
+			"ngOnInit() {",
+			"\t$0",
+			"}"
+		],
+		"description": "Called after the constructor, initializing input properties, and the first call to ngOnChanges."
+	},
+	"ngDoCheck event hook": {
+		"prefix": "angNgDoCheck",
+		"body": [
+			"ngDoCheck() {",
+			"\t$0",
+			"}"
+		],
+		"description": "Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check."
+	},
+	"ngAfterContentInit event hook": {
+		"prefix": "angNgAfterContentInit",
+		"body": [
+			"ngAfterContentInit() {",
+			"\t$0",
+			"}"
+		],
+		"description": "Called after ngOnInit when the component's or directive's content has been initialized."
+	},
+	"ngAfterContentChecked event hook": {
+		"prefix": "angNgAfterContentChecked",
+		"body": [
+			"ngAfterContentChecked() {",
+			"\t$0",
+			"}"
+		],
+		"description": "Called after every check of the component's or directive's content."
+	},
+	"ngAfterViewInit event hook": {
+		"prefix": "angNgAfterViewInit",
+		"body": [
+			"ngAfterViewInit() {",
+			"\t$0",
+			"}"
+		],
+		"description": "Called after ngAfterContentInit when the component's view has been initialized. Applies to components only."
+	},
+	"ngAfterViewChecked event hook": {
+		"prefix": "angNgAfterViewChecked",
+		"body": [
+			"ngAfterViewChecked() {",
+			"\t$0",
+			"}"
+		],
+		"description": "Called after every check of the component's view. Applies to components only."
+	},
+	"ngOnDestroy event hook": {
+		"prefix": "angNgOnDestroy",
+		"body": [
+			"ngOnDestroy() {",
+			"\t$0",
+			"}"
+		],
+		"description": "Called once, before the instance is destroyed."
+	},
+	"route definitions": {
+		"prefix": "angRouteDefinitions",
+		"body": [
+			"const ${routes}: Routes = [",
+			"\t{ path: '', component: ${Home}Component },",
+			"\t{ path: '${path}/:${routeParam}', component: ${MyComponent} },",
+			"\t{ path: '${staticPath}', component: ${...} },",
+			"\t{ path: '${**}', component: ${...} },",
+			"\t{ path: '${oldPath}', redirectTo: '/${staticPath}' },",
+			"\t{ path: ${...}, component: ${...}, data: { ${message}: ${'Custom'} } }",
+			"\t]);",
+			"",
+			"const routing = RouterModule.forRoot(${routes});"
+		],
+		"description": "Configures routes for the application. Supports static, parameterized, redirect, and wildcard routes. Also supports custom route data and resolve."
+	},
+	"CanActivate full implementation": {
+		"prefix": "angCanActivateFull",
+		"body": [
+			"class ${UserToken} {}",
+			"class ${Permissions} {",
+			"\tcanActivate(${user}: ${UserToken}, ${id}: ${string}): boolean {",
+			"\t\treturn true;",
+			"\t}",
+			"}",
+			"@Injectable()",
+			"class CanActivate${Team} implements CanActivate {",
+			"\tconstructor(private permissions: ${Permissions}, private currentUser: ${UserToken}) {}",
+			"\tcanActivate(",
+			"\t\troute: ActivatedRouteSnapshot,",
+			"\t\tstate: RouterStateSnapshot",
+			"\t): Observable<boolean>|Promise<boolean>|boolean {",
+			"\t\treturn this.permissions.canActivate(this.${currentUser}, route.params.${id});",
+			"\t}",
+			"}",
+			"@NgModule({",
+			"\timports: [",
+			"\t\tRouterModule.forRoot([",
+			"\t\t{",
+			"\t\tpath: '${team}/:${id}',",
+			"\t\tcomponent: ${TeamCmp},",
+			"\t\tcanActivate: [CanActivate${Team}]",
+			"\t\t}])",
+			"\t],",
+			"\tproviders: [CanActivate${Team}, ${UserToken}, ${Permissions}]",
+			"})",
+			"class AppModule {}"
+		],
+		"description": "An interface for defining a class that the router should call first to determine if it should activate this component. Should return a boolean or an Observable/Promise that resolves to a boolean."
+	},
+	"CanActivate simple": {
+		"prefix": "angCanActivateSimple",
+		"body": [
+			"canActivate(",
+			"\t\troute: ActivatedRouteSnapshot,",
+			"\t\tstate: RouterStateSnapshot",
+			"\t): Observable<boolean>|Promise<boolean>|boolean {",
+			"\t\t\t$0",
+			"\t\t\treturn this.permissions.canActivate(${this.currentUser}, route.params.${id});",
+			"\t\t}"
+		],
+		"description": "An interface for defining a class that the router should call first to determine if it should activate this component. Should return a boolean or an Observable/Promise that resolves to a boolean."
+	},
+	"CanDeactivate full implementation": {
+		"prefix": "angCanDeactivateFull",
+		"body": [
+			"class ${UserToken} {}",
+			"class ${Permissions} {",
+			"\tcanDeactivate(${user}: ${UserToken}, ${id}: ${string}): boolean {",
+			"\t\treturn true;",
+			"\t}",
+			"}",
+			"@Injectable()",
+			"class CanDeactivate${Team} implements CanDeactivate<${TeamComponent}> {",
+			"\t\tconstructor(private ${permissions}: ${Permissions}, private ${currentUser}: ${UserToken}) {}",
+			"\t\tcanDeactivate(",
+			"\t\t\tcomponent: ${TeamComponent},",
+			"\t\t\troute: ActivatedRouteSnapshot,",
+			"\t\t\tstate: RouterStateSnapshot",
+			"\t\t): Observable<boolean>|Promise<boolean>|boolean {",
+			"\t\t\treturn this.permissions.canDeactivate(this.${currentUser}, route.params.${id});",
+			"\t}",
+			"}",
+			"@NgModule({",
+			"\timports: [",
+			"\t\tRouterModule.forRoot([",
+			"\t\t{",
+			"\t\t\tpath: '${team}/:${id}',",
+			"\t\t\tcomponent: ${TeamCmp},",
+			"\t\t\tcanDeactivate: [CanDeactivate${Team}]",
+			"\t\t}",
+			"\t])",
+			"],",
+			"providers: [CanDeactivate${Team}, ${UserToken}, ${Permissions}]",
+			"})",
+			"class AppModule {}"
+		],
+		"description": "An interface for defining a class that the router should call first to determine if it should deactivate this component after a navigation. Should return a boolean or an Observable/Promise that resolves to a boolean."
+	},
+	"CanDeactivate simple": {
+		"prefix": "angCanDeactivateSimple",
+		"body": [
+			"\tcanDeactivate(",
+			"\t\t\tcomponent: ${TeamComponent},",
+			"\t\t\troute: ActivatedRouteSnapshot,",
+			"\t\t\tstate: RouterStateSnapshot",
+			"\t\t): Observable<boolean>|Promise<boolean>|boolean {",
+			"\t\t\t$0return this.permissions.canDeactivate(this.${currentUser}, route.params.${id});",
+			"\t}"
+		],
+		"description": "An interface for defining a class that the router should call first to determine if it should deactivate this component after a navigation. Should return a boolean or an Observable/Promise that resolves to a boolean."
+	},
+	"CanActivateChild full implementation": {
+		"prefix": "angCanActivateChildFull",
+		"body": [
+			"class ${UserToken} {}",
+			"class ${Permissions} {",
+			"\tcanActivate(${user}: ${UserToken}, ${id}: ${string}): boolean {",
+			"\t\treturn true;",
+			"\t}",
+			"}",
+			"@Injectable()",
+			"class CanActivate${Team} implements CanActivateChild {",
+			"\tconstructor(private permissions: Permissions, private ${currentUser}: ${UserToken}) {}",
+			"\tcanActivateChild(",
+			"\t\troute: ActivatedRouteSnapshot,",
+			"\t\tstate: RouterStateSnapshot",
+			"\t): Observable<boolean>|Promise<boolean>|boolean {",
+			"\t\treturn this.permissions.canActivate(this.${currentUser}, route.params.${id});",
+			"\t}",
+			"}",
+			"@NgModule({",
+			"\timports: [",
+			"\t\tRouterModule.forRoot([",
+			"\t\t{",
+			"\t\t\tpath: 'root',",
+			"\t\t\tcanActivateChild: [CanActivate${Team}],",
+			"\t\t\tchildren: [",
+			"\t\t\t\t{",
+			"\t\t\t\tpath: '${team}/:${id}',",
+			"\t\t\t\tcomponent: ${Team}",
+			"\t\t\t}",
+			"\t\t]",
+			"\t}]}",
+			"\t],",
+			"\tproviders: [CanActivate${Team}, ${UserToken}, ${Permissions}]",
+			"})",
+			"class AppModule {}"
+		],
+		"description": "An interface for defining a class that the router should call first to determine if it should activate the child route. Should return a boolean or an Observable/Promise that resolves to a boolean."
+	},
+	"CanActivateChild simple": {
+		"prefix": "angCanActivateChildSimple",
+		"body": [
+			"\tcanActivateChild(",
+			"\t\troute: ActivatedRouteSnapshot,",
+			"\t\tstate: RouterStateSnapshot",
+			"\t): Observable<boolean>|Promise<boolean>|boolean {",
+			"\t\treturn this.permissions.canActivate(this.${currentUser}, route.params.${id});",
+			"\t}"
+		],
+		"description": "An interface for defining a class that the router should call first to determine if it should activate the child route. Should return a boolean or an Observable/Promise that resolves to a boolean."
+	},
+	"Resolve full implementation": {
+		"prefix": "angResolveFull",
+		"body": [
+			"class ${Backend} {",
+			"\t${fetchTeam}(id: string) {",
+			"\t\treturn 'someTeam';",
+			"\t}",
+			"}",
+			"@Injectable()",
+			"class ${Team}Resolver implements Resolve<${Team}> {",
+			"\tconstructor(private ${backend}: ${Backend}) {}",
+			"\tresolve(",
+			"\t\troute: ActivatedRouteSnapshot,",
+			"\t\tstate: RouterStateSnapshot",
+			"\t\t): Observable<any>|Promise<any>|any {",
+			"\t\t\treturn this.${backend}.${fetchTeam}(route.params.id);",
+			"\t}",
+			"}",
+			"@NgModule({",
+			"\timports: [",
+			"\t\tRouterModule.forRoot([",
+			"\t\t{",
+			"\t\t\tpath: '${team}/:${id}',",
+			"\t\t\tcomponent: ${TeamCmp},",
+			"\t\t\tresolve: {",
+			"\t\t\t\tteam: ${TeamResolver}",
+			"\t\t\t}",
+			"\t}])",
+			"\t],",
+			"\tproviders: [${TeamResolver}]",
+			"})",
+			"class AppModule {}"
+		],
+		"description": "An interface for defining a class that the router should call first to resolve route data before rendering the route. Should return a value or an Observable/Promise that resolves to a value."
+	},
+	"Resolve simple": {
+		"prefix": "angResolveSimple",
+		"body": [
+			"\tresolve(",
+			"\t\troute: ActivatedRouteSnapshot,",
+			"\t\tstate: RouterStateSnapshot",
+			"\t\t): Observable<any>|Promise<any>|any {",
+			"\t\t\treturn this.${backend}.${fetchTeam}(route.params.id);",
+			"\t}"
+		],
+		"description": "An interface for defining a class that the router should call first to resolve route data before rendering the route. Should return a value or an Observable/Promise that resolves to a value."
+	},
+	"CanLoad full implementation": {
+		"prefix": "angCanLoadFull",
+		"body": [
+			"class ${UserToken} {}",
+			"class ${Permissions} {",
+			"\tcanLoadChildren(${user}: ${UserToken}, ${id}: ${string}): boolean {",
+			"\t\treturn true;",
+			"\t}",
+			"}",
+			"@Injectable()",
+			"class CanLoad${TeamSection} implements CanLoad {",
+			"\tconstructor(private ${permissions}: ${Permissions}, private ${currentUser}: ${UserToken}) {}",
+			"\tcanLoad(route: Route(",
+			"\t\troute: Route",
+			"\t): Observable<boolean>|Promise<boolean>|boolean {",
+			"\t\treturn this.permissions.canLoadChildren(this.${currentUser}, route);",
+			"\t}",
+			"}",
+			"@NgModule({",
+			"\timports: [",
+			"\t\tRouterModule.forRoot([",
+			"\t\t{",
+			"\t\t\tpath: '${team}/:${id}',",
+			"\t\t\tcomponent: ${TeamCmp},",
+			"\t\t\tloadChildren: '${team.js}',",
+			"\t\t\tcanLoad: [CanLoad${TeamSection}]",
+			"\t\t}",
+			"\t\t])",
+			"\t],",
+			"\tproviders: [CanLoad${TeamSection}, ${UserToken}, ${Permissions}]",
+			"})",
+			"class AppModule {}"
+		],
+		"description": "An interface for defining a class that the router should call first to check if the lazy loaded module should be loaded. Should return a boolean or an Observable/Promise that resolves to a boolean."
+	},
+	"CanLoad simple": {
+		"prefix": "angCanLoadSimple",
+		"body": [
+			"\tcanLoad(route: Route(",
+			"\t\troute: Route",
+			"\t): Observable<boolean>|Promise<boolean>|boolean {",
+			"\t\treturn this.permissions.canLoadChildren(this.${currentUser}, route);",
+			"\t}"
+		],
+		"description": "An interface for defining a class that the router should call first to check if the lazy loaded module should be loaded. Should return a boolean or an Observable/Promise that resolves to a boolean."
+	}
+}
